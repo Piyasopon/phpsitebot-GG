@@ -77,11 +77,8 @@ else if (strpos($_msg,'-siteloc') !== false ){
                     $replyToken = $events['events'][0]['replyToken'];
                     // Build message to reply back
                     $messages = [
-                        'type': 'location',
-                        'title': 'CMI0027',
-                        'address': 'จ. เชียงใหม่ อ. เมืองเชียงใหม่ ต. หายยา',
-                        'latitude': 18.78013,
-                        'longitude': 100.5386192
+                        'type' => 'text',
+                        'text' => $text,
                     ];
                     // Make a POST Request to Messaging API to reply to sender
                     $url = 'https://api.line.me/v2/bot/message/reply';
