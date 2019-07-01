@@ -10,14 +10,27 @@ $_msg = $events['events'][0]['message']['text'];
 $Pdata = array("CMI","CRI","LPG","LPN","MHS","NAN","PHE","PYO");
 $bMsg = substr($_msg,-7,3);
 $SiteMsg = substr($_msg,-7);
-$Sitedata = array("CMI0027","MHS0001");
+$PROVINCE = array("เชียงใหม่", "เชียงราย", "ลำปาง", "ลำพูน", "แม่ฮ่องสอน", "นาน", "แพร่", "พะเยา");
+$Sitedata = array("CMI0027","CMI0033","CMI0034","CMI0036","CMI0039","CMI0040","CMI0041","CMI0042","CMI0043","CMI0044","CMI0046",);
+$AMPHOE = array("เมืองเชียงใหม่","เมืองเชียงใหม่","เมืองเชียงใหม่","เมืองเชียงใหม่","เมืองเชียงใหม่","เมืองเชียงใหม่","เมืองเชียงใหม่","เมืองเชียงใหม่","เมืองเชียงใหม่","เมืองเชียงใหม่","เมืองเชียงใหม่",);
+$TAMBON = array("หายยา","ช้างเผือก","สุเทพ","สุเทพ","ศรีภูมิ","แม่เหียะ","ป่าแดด","ช้างคลาน","หายยา","หนองหอย","ช้างม่อย",);
+$LATITUDE = array(18.78013,18.81422,18.78762,18.79547,18.7894,18.73444,18.76357,18.77614,18.77964,18.76387,18.7894);
+$LONGITUDE = array(98.98756,98.9825,98.97255,98.97758,98.9877,98.95696,98.99277,98.99774,98.99375,99.00655,98.9968);
+$G900 = array("Active","Active","Active","Active","Active","Active","Active","Active","Active","Active","Active",);
+$U850 = array("Active","Active","Active","Active","Active","Active","Active","Active","Active","Active","Active",);
+$U2100 = array("Active","Active","Active","Active","Active","Active","Active","Active","Active","Active","Active",);
+$L2100 = array("Active","Active","Active","Active","Active","Active","Active","Active","Active","Active","Active",);
+$L1800 = array("Active","Active","Active","Active","Active","Active","Active","Active","Active","Active","Active",);
+$L900 = array("Active","Active","Active","Active","Active","Active","Active","Active","Active","Active","Active",);
+
+
 if (strpos($_msg,'-sitetech') !== false ){
     for ($i = 0 ; i<8 ; $i++){
         if ($bMsg == $Pdata[$i]){
             for ($j = 0 ; $j<3539 ;$j++){
                 if ($SiteMsg == $Sitedata[$j]){
                     // Get text sent
-                    $text = 'หาเองดิ tech อะ';
+                    $text = $Sitedata[$j].'\nG900 : '.$G900[$j].'\nU850 : '.$U850[$j].'\nU2100 : '.$U2100[$j].'\nL2100 : '.$L2100[$j].'\nL1800 : '.$L1800[$j].'\nL900 : '.$L900[$j];
                     // Get replyToken
                     $replyToken = $events['events'][0]['replyToken'];
                     // Build message to reply back
@@ -45,7 +58,7 @@ else if (strpos($_msg,'-siteaddr') !== false ){
             for ($j = 0 ; $j<3539 ;$j++){
                 if ($SiteMsg == $Sitedata[$j]){
                     // Get text sent
-                    $text = 'หาเองดิ addr อะ';
+                    $text = 'จ.'.$PROVINCE[$i].'อ.'.$AMPHOE[$j].'ต.'.$TAMBON[$j];
                     // Get replyToken
                     $replyToken = $events['events'][0]['replyToken'];
                     // Build message to reply back
@@ -78,10 +91,10 @@ else if (strpos($_msg,'-siteloc') !== false ){
                     // Build message to reply back
                     $messages = [
                         'type'=> 'location',
-                        'title'=> 'CMI0027',
-                        'address'=> 'จ. เชียงใหม่ อ. เมืองเชียงใหม่ ต. หายยา',
-                        'latitude'=> 18.78013,
-                        'longitude'=> 100.5386192
+                        'title'=> $Sitedata[$j],
+                        'address'=> 'จ.'.$PROVINCE[$i].'อ.'.$AMPHOE[$j].'ต.'.$TAMBON[$j],
+                        'latitude'=> $LATITUDE[$j],
+                        'longitude'=> $LONGITUDE[$j]
                     ];
                     // Make a POST Request to Messaging API to reply to sender
                     $url = 'https://api.line.me/v2/bot/message/reply';
@@ -98,7 +111,11 @@ else if (strpos($_msg,'-siteloc') !== false ){
 }
 else if (strpos($_msg,'-help') !== false ){
     // Get text sent
-    $text = 'ไม่ช่วยได้ป่ะจะนอน';
+    $text = '\uDBC0\uDC2E\nเรามีข้อมูลของจังหวัดดังนี้\n
+    เชียงใหม่ เชียงราย ลำปาง ลำพูน แม่ฮ่องสอน นาน พะเยา และแพร่ \n
+    เรียกใช้ผ่านฟังก์ชัน\n-siteaddr XXXxxxx\tใช้หาที่อยู่ไซต์\n
+    -sitetech XXXxxxx\tใช้หาเทคโนโลยีที่มีในไซต์\n-siteloc XXXxxxx\tใช้การโลเคชั่นไซต์\n
+    อย่าลืมพิมพ์ชื่อไซต์ตัวพิมพ์ใหญ่นะ \uDBC0\uDC2B \uDBC0\uDC2B';
     // Get replyToken
     $replyToken = $events['events'][0]['replyToken'];
     // Build message to reply back
@@ -115,7 +132,7 @@ else if (strpos($_msg,'-help') !== false ){
 }
 else{
     // Get text sent
-    $text = 'ไม่พบข้อมูล '.$_msg;
+    $text = 'ไม่พบข้อมูล '.$SiteMsg;
     // Get replyToken
     $replyToken = $events['events'][0]['replyToken'];
     // Build message to reply back
