@@ -31,12 +31,12 @@ if (strpos($_msg,'-sitetech') !== false ){
                 if ($SiteMsg == $Sitedata[$j]){
                     // Get text sent
                     $text = $Sitedata[$j].'
-                    G900  : '.$G900[$j].'
-                    U850  : '.$U850[$j].'
-                    U2100 : '.$U2100[$j].'
-                    L2100 : '.$L2100[$j].'
-                    L1800 : '.$L1800[$j].'
-                    L900  : '.$L900[$j];
+    G900  : '.$G900[$j].'
+    U850  : '.$U850[$j].'
+    U2100 : '.$U2100[$j].'
+    L2100 : '.$L2100[$j].'
+    L1800 : '.$L1800[$j].'
+    L900  : '.$L900[$j];
                     // Get replyToken
                     $replyToken = $events['events'][0]['replyToken'];
                     // Build message to reply back
@@ -65,7 +65,7 @@ else if (strpos($_msg,'-siteaddr') !== false ){
                 if ($SiteMsg == $Sitedata[$j]){
                     // Get text sent
                     $text = $Sitedata[$j].'
-                    จ.'.$PROVINCE[$i].'  อ.'.$AMPHOE[$j].'  ต.'.$TAMBON[$j];
+    จ.'.$PROVINCE[$i].'  อ.'.$AMPHOE[$j].'  ต.'.$TAMBON[$j];
                     // Get replyToken
                     $replyToken = $events['events'][0]['replyToken'];
                     // Build message to reply back
@@ -118,11 +118,11 @@ else if (strpos($_msg,'-help') !== false ){
     // Get text sent
     $text = 'เรามีข้อมูลของจังหวัดดังนี้
     เชียงใหม่ เชียงราย ลำปาง ลำพูน แม่ฮ่องสอน นาน พะเยา และแพร่
-    เรียกใช้ผ่านฟังก์ชัน
+เรียกใช้ผ่านฟังก์ชัน
     -siteaddr XXXxxxx  ใช้หาที่อยู่ไซต์
     -sitetech XXXxxxx  ใช้หาเทคโนโลยีที่มีในไซต์
     -siteloc XXXxxxx  ใช้การโลเคชั่นไซต์
-    อย่าลืมพิมพ์ชื่อไซต์ตัวพิมพ์ใหญ่นะ';
+อย่าลืมพิมพ์ชื่อไซต์ตัวพิมพ์ใหญ่นะ';
     // Get replyToken
     $replyToken = $events['events'][0]['replyToken'];
     // Build message to reply back
