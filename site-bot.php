@@ -31,12 +31,12 @@ if (strpos($_msg,'-sitetech') !== false ){
                 if ($SiteMsg == $Sitedata[$j]){
                     // Get text sent
                     $text = $Sitedata[$j]
-                    .'G900 : '.$G900[$j]
-                    .'U850 : '.$U850[$j]
+                    .'G900  : '.$G900[$j]
+                    .'U850  : '.$U850[$j]
                     .'U2100 : '.$U2100[$j]
                     .'L2100 : '.$L2100[$j]
                     .'L1800 : '.$L1800[$j]
-                    .<br>.'L900 : '.$L900[$j];
+                    .'L900  : '.$L900[$j];
                     // Get replyToken
                     $replyToken = $events['events'][0]['replyToken'];
                     // Build message to reply back
