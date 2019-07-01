@@ -30,7 +30,7 @@ if (strpos($_msg,'-sitetech') !== false ){
             for ($j = 0 ; $j<3539 ;$j++){
                 if ($SiteMsg == $Sitedata[$j]){
                     // Get text sent
-                    $text = $Sitedata[$j].'\nG900 : '.$G900[$j].'\nU850 : '.$U850[$j].'\nU2100 : '.$U2100[$j].'\nL2100 : '.$L2100[$j].'\nL1800 : '.$L1800[$j].'\nL900 : '.$L900[$j];
+                    $text = $Sitedata[$j].'<br>G900 : '.$G900[$j].'<br>U850 : '.$U850[$j].'<br>U2100 : '.$U2100[$j].'<br>L2100 : '.$L2100[$j].'<br>L1800 : '.$L1800[$j].'<br>L900 : '.$L900[$j];
                     // Get replyToken
                     $replyToken = $events['events'][0]['replyToken'];
                     // Build message to reply back
@@ -58,7 +58,7 @@ else if (strpos($_msg,'-siteaddr') !== false ){
             for ($j = 0 ; $j<3539 ;$j++){
                 if ($SiteMsg == $Sitedata[$j]){
                     // Get text sent
-                    $text = 'จ.'.$PROVINCE[$i].'อ.'.$AMPHOE[$j].'ต.'.$TAMBON[$j];
+                    $text = $Sitedata[$j].'<br>'.'จ.'.$PROVINCE[$i].'อ.'.$AMPHOE[$j].'ต.'.$TAMBON[$j];
                     // Get replyToken
                     $replyToken = $events['events'][0]['replyToken'];
                     // Build message to reply back
@@ -84,15 +84,13 @@ else if (strpos($_msg,'-siteloc') !== false ){
         if ($bMsg == $Pdata[$i]){
             for ($j = 0 ; $j<3539 ;$j++){
                 if ($SiteMsg == $Sitedata[$j]){
-                    // Get text sent
-                    $text = 'หาเองดิ loc อะ';
                     // Get replyToken
                     $replyToken = $events['events'][0]['replyToken'];
                     // Build message to reply back
                     $messages = [
                         'type'=> 'location',
                         'title'=> $Sitedata[$j],
-                        'address'=> 'จ.'.$PROVINCE[$i].'อ.'.$AMPHOE[$j].'ต.'.$TAMBON[$j],
+                        'address'=> 'จ.'.$PROVINCE[$i].' อ.'.$AMPHOE[$j].' ต.'.$TAMBON[$j],
                         'latitude'=> $LATITUDE[$j],
                         'longitude'=> $LONGITUDE[$j]
                     ];
