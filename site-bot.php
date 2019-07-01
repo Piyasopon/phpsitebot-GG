@@ -129,7 +129,7 @@ else if (strpos($_msg,'-help') !== false ){
     $messages = [
         {   'type'=> "sticker",
             'packageId'=> 11537,
-            'stickerId'=> 52002749,}
+            'stickerId'=> 52002749,},
         {   'type' => 'text',
             'text' => $text,}
     ];
