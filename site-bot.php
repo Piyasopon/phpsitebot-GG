@@ -30,7 +30,7 @@ if (strpos($_msg,'-sitetech') !== false ){
             for ($j = 0 ; $j<3539 ;$j++){
                 if ($SiteMsg == $Sitedata[$j]){
                     // Get text sent
-                    $text = $Sitedata[$j].'<br>G900 : '.$G900[$j].'<br>U850 : '.$U850[$j].'<br>U2100 : '.$U2100[$j].'<br>L2100 : '.$L2100[$j].'<br>L1800 : '.$L1800[$j].'<br>L900 : '.$L900[$j];
+                    $text = $Sitedata[$j].<br>'G900 : '.$G900[$j].<br>'U850 : '.$U850[$j].<br>'U2100 : '.$U2100[$j].<br>'L2100 : '.$L2100[$j].<br>'L1800 : '.$L1800[$j].<br>'L900 : '.$L900[$j];
                     // Get replyToken
                     $replyToken = $events['events'][0]['replyToken'];
                     // Build message to reply back
@@ -58,7 +58,7 @@ else if (strpos($_msg,'-siteaddr') !== false ){
             for ($j = 0 ; $j<3539 ;$j++){
                 if ($SiteMsg == $Sitedata[$j]){
                     // Get text sent
-                    $text = $Sitedata[$j].'<br>'.'จ.'.$PROVINCE[$i].'อ.'.$AMPHOE[$j].'ต.'.$TAMBON[$j];
+                    $text = $Sitedata[$j].<br>.'จ.'.$PROVINCE[$i].'อ.'.$AMPHOE[$j].'ต.'.$TAMBON[$j];
                     // Get replyToken
                     $replyToken = $events['events'][0]['replyToken'];
                     // Build message to reply back
@@ -109,11 +109,11 @@ else if (strpos($_msg,'-siteloc') !== false ){
 }
 else if (strpos($_msg,'-help') !== false ){
     // Get text sent
-    $text = '\uDBC0\uDC2E\nเรามีข้อมูลของจังหวัดดังนี้\n
-    เชียงใหม่ เชียงราย ลำปาง ลำพูน แม่ฮ่องสอน นาน พะเยา และแพร่ \n
-    เรียกใช้ผ่านฟังก์ชัน\n-siteaddr XXXxxxx\tใช้หาที่อยู่ไซต์\n
-    -sitetech XXXxxxx\tใช้หาเทคโนโลยีที่มีในไซต์\n-siteloc XXXxxxx\tใช้การโลเคชั่นไซต์\n
-    อย่าลืมพิมพ์ชื่อไซต์ตัวพิมพ์ใหญ่นะ \uDBC0\uDC2B \uDBC0\uDC2B';
+    $text = '\uDBC0DC2E  เรามีข้อมูลของจังหวัดดังนี้'<br>'
+    เชียงใหม่ เชียงราย ลำปาง ลำพูน แม่ฮ่องสอน นาน พะเยา และแพร่ '<br>'
+    เรียกใช้ผ่านฟังก์ชัน'<br>'-siteaddr XXXxxxx  ใช้หาที่อยู่ไซต์'<br>'
+    -sitetech XXXxxxx  ใช้หาเทคโนโลยีที่มีในไซต์'<br>'-siteloc XXXxxxx  ใช้การโลเคชั่นไซต์'<br>'
+    อย่าลืมพิมพ์ชื่อไซต์ตัวพิมพ์ใหญ่นะ \uDBC0DC2B \uDBC0DC2B';
     // Get replyToken
     $replyToken = $events['events'][0]['replyToken'];
     // Build message to reply back
