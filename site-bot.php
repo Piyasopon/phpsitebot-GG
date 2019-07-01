@@ -8,8 +8,8 @@ $events = json_decode($content, true);
 // Validate parsed JSON data
 $_msg = $events['events'][0]['message']['text'];
 $Pdata = array("CMI","CRI","LPG","LPN","MHS","NAN","PHE","PYO");
-$bMsg =substr ($_msg,-7,3);
-$SiteMsg =substr ($_msg,-7);
+$bMsg = substr($_msg,-7,3);
+$SiteMsg = substr($_msg,-7);
 $Sitedata = array("CMI0027","MHS0001");
 if (strpos($_msg,'-sitetech') !== false ){
     for ($i = 0 ; i<8 ; $i++){
@@ -30,9 +30,11 @@ if (strpos($_msg,'-sitetech') !== false ){
                     $data = [
                         'replyToken' => $replyToken,
                         'messages' => [$messages]
-                    ];  
+                    ];
+                    break;  
                 }
             }
+            break;
         }
     }
 }
@@ -57,8 +59,10 @@ else if (strpos($_msg,'-siteaddr') !== false ){
                         'replyToken' => $replyToken,
                         'messages' => [$messages]
                     ]; 
+                    break;
                 }
             }
+            break;
         }
     }
 }
@@ -81,9 +85,11 @@ else if (strpos($_msg,'-siteloc') !== false ){
                     $data = [
                         'replyToken' => $replyToken,
                         'messages' => [$messages]
-                    ]; 
+                    ];
+                    break; 
                 }
             }
+            break;
         }
     }
 }
