@@ -30,6 +30,7 @@ while (($objArr = fgetcsv($objCSV, 1000, ",")) !== FALSE) {
         echo $objArr[1];
     $row++;
  }
+fclose($objCSV);
 
 if (strpos($_msg,'-sitetech') !== false ){
     for ($i = 0 ; i<8 ; $i++){
@@ -174,6 +175,6 @@ $result = curl_exec($ch);
 curl_close($ch);
 echo $result . "";
 
-fclose($objCSV);
+
 echo "OK";
 ?>
