@@ -11,24 +11,34 @@ $Pdata = array("CMI","CRI","LPG","LPN","MHS","NAN","PHE","PYO");
 $bMsg = substr($_msg,-7,3);
 $SiteMsg = substr($_msg,-7);
 $PROVINCE = array("เชียงใหม่", "เชียงราย", "ลำปาง", "ลำพูน", "แม่ฮ่องสอน", "นาน", "แพร่", "พะเยา");
-$Sitedata = array("CMI0027");
-$AMPHOE = array("เมืองเชียงใหม่");
-$TAMBON = array("หายยา");
-$LATITUDE = array(18.78013);
-$LONGITUDE = array(98.98756);
-$G900 = array("Active");
-$U850 = array("Active");
-$U2100 = array("Active");
-$L2100 = array("Active");
-$L1800 = array("Active");
-$L900 = array("Active");
+
+$row = 1;
+$objCSV = fopen("Site Data for TSID2.csv", "r");
+while (($objArr = fgetcsv($objCSV, 1000, ",")) !== FALSE) {
+    $num = count($data);
+    if ($objArr[1]==$SiteMsg){
+        $objArr[1] = $Sitedata ;
+        $objArr[3] = $AMPHOE ;
+        $objArr[4] = $TAMBON ;
+        $objArr[5] = $LATITUDE ;
+        $objArr[6] = $LONGITUDE ;
+        $objArr[8] = $G900 ;
+        $objArr[9] = $U850 ;
+        $objArr[10] = $U2100 ;
+        $objArr[11] = $L2100 ;
+        $objArr[12] = $L1800 ;
+        $objArr[13] = $L900 ;
+        break;
+    }
+    $row++;
+ }
+fclose($objCSV);
 
 
 if (strpos($_msg,'-sitetech') !== false ){
     for ($i = 0 ; i<8 ; $i++){
         if ($bMsg == $Pdata[$i]){
-            for ($j = 0 ; $j<3539 ;$j++){
-                if ($SiteMsg == $Sitedata[$j]){
+            
                     // Get text sent
                     $text = $Sitedata[$j].'
     G900  : '.$G900[$j].'
@@ -51,9 +61,7 @@ if (strpos($_msg,'-sitetech') !== false ){
                         'messages' => [$messages]
                     ];
                     break;  
-                }
-            }
-            break;
+            
         }
     }
 }
@@ -61,8 +69,7 @@ if (strpos($_msg,'-sitetech') !== false ){
 else if (strpos($_msg,'-siteaddr') !== false ){
     for ($i = 0 ; i<8 ; $i++){
         if ($bMsg == $Pdata[$i]){
-            for ($j = 0 ; $j<3539 ;$j++){
-                if ($SiteMsg == $Sitedata[$j]){
+            
                     // Get text sent
                     $text = $Sitedata[$j].'
     จ.'.$PROVINCE[$i].'  อ.'.$AMPHOE[$j].'  ต.'.$TAMBON[$j];
@@ -80,17 +87,12 @@ else if (strpos($_msg,'-siteaddr') !== false ){
                         'messages' => [$messages]
                     ]; 
                     break;
-                }
-            }
-            break;
         }
     }
 }
 else if (strpos($_msg,'-siteloc') !== false ){
     for ($i = 0 ; i<8 ; $i++){
-        if ($bMsg == $Pdata[$i]){
-            for ($j = 0 ; $j<3539 ;$j++){
-                if ($SiteMsg == $Sitedata[$j]){
+        if ($bMsg == $Pdata[$i]){        
                     // Get replyToken
                     $replyToken = $events['events'][0]['replyToken'];
                     // Build message to reply back
@@ -108,9 +110,6 @@ else if (strpos($_msg,'-siteloc') !== false ){
                         'messages' => [$messages]
                     ];
                     break; 
-                }
-            }
-            break;
         }
     }
 }
