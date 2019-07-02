@@ -23,6 +23,15 @@ $L2100="Active";
 $L1800="Active";
 $L900="Active";
 
+
+
+
+
+
+
+
+
+
 if (strpos($_msg,'-sitetech') !== false ){
     $text = $Sitedata.'
     G900  : '.$G900.'
@@ -79,7 +88,7 @@ else if (strpos($_msg,'-help') !== false ){
 เรียกใช้ผ่านฟังก์ชัน
     -siteaddr XXXxxxx  ใช้หาที่อยู่ไซต์
     -sitetech XXXxxxx  ใช้หาเทคโนโลยีที่มีในไซต์
-    -siteloc XXXxxxx  ใช้การโลเคชั่นไซต์
+    -siteloc XXXxxxx  ใช้หาโลเคชั่นไซต์
 อย่าลืมพิมพ์ชื่อไซต์ตัวพิมพ์ใหญ่นะ';
     $replyToken = $events['events'][0]['replyToken'];
     $messages = [
