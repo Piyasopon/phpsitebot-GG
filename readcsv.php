@@ -4,7 +4,7 @@ $i=0;
 $objCSV = fopen("Book1.csv", "r");
 while (($objArr = fgetcsv($objCSV, 1000, ",")) !== FALSE) {
     $num = count($data);
-   if ($objArr[14]=="CMI"){echo $objArr[0];}
+   if ($objArr[13]=="CMI"){echo $objArr[0];}
     $row++;
     $i++;if($i==50){'<br>';$i=0;}
  }
