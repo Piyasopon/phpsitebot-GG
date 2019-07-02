@@ -40,13 +40,13 @@ if (strpos($_msg,'-sitetech') !== false ){
         if ($bMsg == $Pdata[$i]){
             
                     // Get text sent
-                    $text = $Sitedata[$j].'
-    G900  : '.$G900[$j].'
-    U850  : '.$U850[$j].'
-    U2100 : '.$U2100[$j].'
-    L2100 : '.$L2100[$j].'
-    L1800 : '.$L1800[$j].'
-    L900  : '.$L900[$j];
+                    $text = $Sitedata.'
+    G900  : '.$G900.'
+    U850  : '.$U850.'
+    U2100 : '.$U2100.'
+    L2100 : '.$L2100.'
+    L1800 : '.$L1800.'
+    L900  : '.$L900;
                     // Get replyToken
                     $replyToken = $events['events'][0]['replyToken'];
                     // Build message to reply back
@@ -71,8 +71,8 @@ else if (strpos($_msg,'-siteaddr') !== false ){
         if ($bMsg == $Pdata[$i]){
             
                     // Get text sent
-                    $text = $Sitedata[$j].'
-    จ.'.$PROVINCE[$i].'  อ.'.$AMPHOE[$j].'  ต.'.$TAMBON[$j];
+                    $text = $Sitedata.'
+    จ.'.$PROVINCE[$i].'  อ.'.$AMPHOE.'  ต.'.$TAMBON;
                     // Get replyToken
                     $replyToken = $events['events'][0]['replyToken'];
                     // Build message to reply back
@@ -98,10 +98,10 @@ else if (strpos($_msg,'-siteloc') !== false ){
                     // Build message to reply back
                     $messages = [
                         'type'=> 'location',
-                        'title'=> $Sitedata[$j],
-                        'address'=> 'จ.'.$PROVINCE[$i].' อ.'.$AMPHOE[$j].' ต.'.$TAMBON[$j],
-                        'latitude'=> $LATITUDE[$j],
-                        'longitude'=> $LONGITUDE[$j]
+                        'title'=> $Sitedata,
+                        'address'=> 'จ.'.$PROVINCE[$i].' อ.'.$AMPHOE.' ต.'.$TAMBON,
+                        'latitude'=> $LATITUDE,
+                        'longitude'=> $LONGITUDE
                     ];
                     // Make a POST Request to Messaging API to reply to sender
                     $url = 'https://api.line.me/v2/bot/message/reply';
