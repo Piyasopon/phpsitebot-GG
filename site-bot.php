@@ -16,18 +16,18 @@ $row = 1;
 $objCSV = fopen("Site Data for TSID2.csv", "r");
 while (($objArr = fgetcsv($objCSV, 1000, ",")) !== FALSE) {
     $num = count($data);
-    if ($objArr[1]==$SiteMsg){
-        $objArr[1] = $Sitedata ;
-        $objArr[3] = $AMPHOE ;
-        $objArr[4] = $TAMBON ;
-        $objArr[5] = $LATITUDE ;
-        $objArr[6] = $LONGITUDE ;
-        $objArr[8] = $G900 ;
-        $objArr[9] = $U850 ;
-        $objArr[10] = $U2100 ;
-        $objArr[11] = $L2100 ;
-        $objArr[12] = $L1800 ;
-        $objArr[13] = $L900 ;
+    if ($objArr[1]==$GLOBALS['SiteMsg']){
+        $objArr[1] = $GLOBALS['Sitedata'] ;
+        $objArr[3] = $GLOBALS['AMPHOE'] ;
+        $objArr[4] = $GLOBALS['TAMBON'] ;
+        $objArr[5] = $GLOBALS['LATITUDE'] ;
+        $objArr[6] = $GLOBALS['LONGITUDE'] ;
+        $objArr[8] = $GLOBALS['G900'] ;
+        $objArr[9] = $GLOBALS['U850'] ;
+        $objArr[10] = $GLOBALS['U2100'] ;
+        $objArr[11] = $GLOBALS['L2100'] ;
+        $objArr[12] = $GLOBALS['L1800'] ;
+        $objArr[13] = $GLOBALS['L900'] ;
         break;
     }
     $row++;
