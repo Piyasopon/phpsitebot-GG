@@ -27,7 +27,7 @@ while (($objArr = fgetcsv($objCSV, 1000, ",")) !== FALSE) {
         $objArr[11] = $L2100[$row-1]  ;
         $objArr[12] = $L1800[$row-1]  ;
         $objArr[13] = $L900[$row-1]  ;
-        echo $Sitedata[$row-1].$objArr[1];
+        echo $objArr[1];
     $row++;
  }
 
