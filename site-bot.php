@@ -11,119 +11,69 @@ $Pdata = array("CMI","CRI","LPG","LPN","MHS","NAN","PHE","PYO");
 $bMsg = substr($_msg,-7,3);
 $SiteMsg = substr($_msg,-7);
 $PROVINCE = array("เชียงใหม่", "เชียงราย", "ลำปาง", "ลำพูน", "แม่ฮ่องสอน", "นาน", "แพร่", "พะเยา");
-
-$row = 1;
-$objCSV = fopen("Site Data for TSID2.csv", "r");
-while (($objArr = fgetcsv($objCSV, 1000, ",")) !== FALSE) {
-    $num = count($data);
-        $objArr[1] = $Sitedata[$row-1] ;
-        $objArr[3] = $AMPHOE[$row-1]  ;
-        $objArr[4] = $TAMBON[$row-1]  ;
-        $objArr[5] = $LATITUDE[$row-1]  ;
-        $objArr[6] = $LONGITUDE[$row-1]  ;
-        $objArr[8] = $G900[$row-1]  ;
-        $objArr[9] = $U850[$row-1]  ;
-        $objArr[10] = $U2100[$row-1]  ;
-        $objArr[11] = $L2100[$row-1]  ;
-        $objArr[12] = $L1800[$row-1]  ;
-        $objArr[13] = $L900[$row-1]  ;
-        echo $objArr[1];
-    $row++;
- }
-fclose($objCSV);
+$Sitedata= "CMI0027";
+$AMPHOE="เมืองเชียงใหม่";
+$TAMBON="หายยา";
+$LATITUDE=18.78013;
+$LONGITUDE=98.98756;
+$G900="Active";
+$U850="Active";
+$U2100="Active";
+$L2100="Active";
+$L1800="Active";
+$L900="Active";
 
 if (strpos($_msg,'-sitetech') !== false ){
-    for ($i = 0 ; i<8 ; $i++){
-        if ($bMsg == $Pdata[$i]){
-            for ($j = 0 ; $j<3539 ;$j++){
-                if ($SiteMsg == $Sitedata[$j]){
-                    // Get text sent
-                    $text = $Sitedata[$j].'
-    G900  : '.$G900[$j].'
-    U850  : '.$U850[$j].'
-    U2100 : '.$U2100[$j].'
-    L2100 : '.$L2100[$j].'
-    L1800 : '.$L1800[$j].'
-    L900  : '.$L900[$j];
-                    // Get replyToken
-                    $replyToken = $events['events'][0]['replyToken'];
-                    // Build message to reply back
-                    $messages = [
-                        'type' => 'text',
-                        'text' => $text,
-                    ];
-                    // Make a POST Request to Messaging API to reply to sender
-                    $url = 'https://api.line.me/v2/bot/message/reply';
-                    $data = [
-                        'replyToken' => $replyToken,
-                        'messages' => [$messages]
-                    ];
-                    break;  
-                }
-            }
-            break;
-        }
-    }
+    $text = $Sitedata.'
+    G900  : '.$G900.'
+    U850  : '.$U850.'
+    U2100 : '.$U2100.'
+    L2100 : '.$L2100.'
+    L1800 : '.$L1800.'
+    L900  : '.$L900;
+    $replyToken = $events['events'][0]['replyToken'];
+    $messages = [
+        'type' => 'text',
+        'text' => $text,
+    ];
+    $url = 'https://api.line.me/v2/bot/message/reply';
+    $data = [
+        'replyToken' => $replyToken,
+        'messages' => [$messages]
+    ];
+
 }
 
 else if (strpos($_msg,'-siteaddr') !== false ){
-    for ($i = 0 ; i<8 ; $i++){
-        if ($bMsg == $Pdata[$i]){
-                for ($j = 0 ; $j<3539 ;$j++){
-                    if ($SiteMsg == $Sitedata[$j]){
-                    // Get text sent
-                    $text = $Sitedata[$j].'
-    จ.'.$PROVINCE[$i].'  อ.'.$AMPHOE[$j].'  ต.'.$TAMBON[$j];
-                    // Get replyToken
-                    $replyToken = $events['events'][0]['replyToken'];
-                    // Build message to reply back
-                    $messages = [
-                        'type' => 'text',
-                        'text' => $text,
-                    ];
-                    // Make a POST Request to Messaging API to reply to sender
-                    $url = 'https://api.line.me/v2/bot/message/reply';
-                    $data = [
-                        'replyToken' => $replyToken,
-                        'messages' => [$messages]
-                    ]; 
-                    break;
-                }
-            }
-            break;
-        }
-    }
+    $text = $Sitedata.'
+    จ.'.$PROVINCE[$i].'  อ.'.$AMPHOE.'  ต.'.$TAMBON;
+    $replyToken = $events['events'][0]['replyToken'];
+    $messages = [
+        'type' => 'text',
+        'text' => $text,
+    ];
+    $url = 'https://api.line.me/v2/bot/message/reply';
+    $data = [
+        'replyToken' => $replyToken,
+        'messages' => [$messages]
+    ]; 
 }
-else if (strpos($_msg,'-siteloc') !== false ){
-    for ($i = 0 ; i<8 ; $i++){
-        if ($bMsg == $Pdata[$i]){
-                for ($j = 0 ; $j<3539 ;$j++){
-                    if ($SiteMsg == $Sitedata[$j]){        
-                    // Get replyToken
-                    $replyToken = $events['events'][0]['replyToken'];
-                    // Build message to reply back
-                    $messages = [
-                        'type'=> 'location',
-                        'title'=> $Sitedata[$j],
-                        'address'=> 'จ.'.$PROVINCE[$i].' อ.'.$AMPHOE[$j].' ต.'.$TAMBON[$j],
-                        'latitude'=> $LATITUDE[$j],
-                        'longitude'=> $LONGITUDE[$j]
-                    ];
-                    // Make a POST Request to Messaging API to reply to sender
-                    $url = 'https://api.line.me/v2/bot/message/reply';
-                    $data = [
-                        'replyToken' => $replyToken,
-                        'messages' => [$messages]
-                    ];
-                    break;
-                }
-            }
-            break; 
-        }
-    }
+else if (strpos($_msg,'-siteloc') !== false ){      
+    $replyToken = $events['events'][0]['replyToken'];
+    $messages = [
+        'type'=> 'location',
+        'title'=> $Sitedata,
+        'address'=> 'จ.'.$PROVINCE[$i].' อ.'.$AMPHOE.' ต.'.$TAMBON,
+        'latitude'=> $LATITUDE,
+        'longitude'=> $LONGITUDE
+    ];
+    $url = 'https://api.line.me/v2/bot/message/reply';
+    $data = [
+        'replyToken' => $replyToken,
+        'messages' => [$messages]
+    ];
 }
 else if (strpos($_msg,'-help') !== false ){
-    // Get text sent
     $text = 'เรามีข้อมูลของจังหวัดดังนี้
     เชียงใหม่ เชียงราย ลำปาง ลำพูน แม่ฮ่องสอน นาน พะเยา และแพร่
 เรียกใช้ผ่านฟังก์ชัน
@@ -131,14 +81,11 @@ else if (strpos($_msg,'-help') !== false ){
     -sitetech XXXxxxx  ใช้หาเทคโนโลยีที่มีในไซต์
     -siteloc XXXxxxx  ใช้การโลเคชั่นไซต์
 อย่าลืมพิมพ์ชื่อไซต์ตัวพิมพ์ใหญ่นะ';
-    // Get replyToken
     $replyToken = $events['events'][0]['replyToken'];
-    // Build message to reply back
     $messages = [
             'type' => 'text',
             'text' => $text,
     ];
-    // Make a POST Request to Messaging API to reply to sender
     $url = 'https://api.line.me/v2/bot/message/reply';
     $data = [
         'replyToken' => $replyToken,
@@ -146,16 +93,12 @@ else if (strpos($_msg,'-help') !== false ){
     ];    
 }
 else{
-    // Get text sent
     $text = 'ไม่พบข้อมูล '.$SiteMsg;
-    // Get replyToken
     $replyToken = $events['events'][0]['replyToken'];
-    // Build message to reply back
     $messages = [
         'type' => 'text',
         'text' => $text,
     ];
-    // Make a POST Request to Messaging API to reply to sender
     $url = 'https://api.line.me/v2/bot/message/reply';
     $data = [
         'replyToken' => $replyToken,
@@ -175,6 +118,6 @@ $result = curl_exec($ch);
 curl_close($ch);
 echo $result . "";
 
-
+fclose($objCSV);
 echo "OK";
 ?>
