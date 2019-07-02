@@ -16,35 +16,33 @@ $row = 1;
 $objCSV = fopen("Site Data for TSID2.csv", "r");
 while (($objArr = fgetcsv($objCSV, 1000, ",")) !== FALSE) {
     $num = count($data);
-    if ($objArr[1]==$SiteMsg){
-        $objArr[1] = $GLOBALS['Sitedata'] ;
-        $objArr[3] = $GLOBALS['AMPHOE'] ;
-        $objArr[4] = $GLOBALS['TAMBON'] ;
-        $objArr[5] = $GLOBALS['LATITUDE'] ;
-        $objArr[6] = $GLOBALS['LONGITUDE'] ;
-        $objArr[8] = $GLOBALS['G900'] ;
-        $objArr[9] = $GLOBALS['U850'] ;
-        $objArr[10] = $GLOBALS['U2100'] ;
-        $objArr[11] = $GLOBALS['L2100'] ;
-        $objArr[12] = $GLOBALS['L1800'] ;
-        $objArr[13] = $GLOBALS['L900'] ;
-        break;
-    }
+        $objArr[1] = $Sitedata[$row-1] ;
+        $objArr[3] = $AMPHOE[$row-1]  ;
+        $objArr[4] = $TAMBON[$row-1]  ;
+        $objArr[5] = $LATITUDE[$row-1]  ;
+        $objArr[6] = $LONGITUDE[$row-1]  ;
+        $objArr[8] = $G900[$row-1]  ;
+        $objArr[9] = $U850[$row-1]  ;
+        $objArr[10] = $U2100[$row-1]  ;
+        $objArr[11] = $L2100[$row-1]  ;
+        $objArr[12] = $L1800[$row-1]  ;
+        $objArr[13] = $L900[$row-1]  ;
     $row++;
  }
 
 if (strpos($_msg,'-sitetech') !== false ){
     for ($i = 0 ; i<8 ; $i++){
         if ($bMsg == $Pdata[$i]){
-            
+            for ($j = 0 ; $j<3539 ;$j++){
+                if ($SiteMsg == $Sitedata[$j]){
                     // Get text sent
-                    $text = $Sitedata.'
-    G900  : '.$G900.'
-    U850  : '.$U850.'
-    U2100 : '.$U2100.'
-    L2100 : '.$L2100.'
-    L1800 : '.$L1800.'
-    L900  : '.$L900;
+                    $text = $Sitedata[$j].'
+    G900  : '.$G900[$j].'
+    U850  : '.$U850[$j].'
+    U2100 : '.$U2100[$j].'
+    L2100 : '.$L2100[$j].'
+    L1800 : '.$L1800[$j].'
+    L900  : '.$L900[$j];
                     // Get replyToken
                     $replyToken = $events['events'][0]['replyToken'];
                     // Build message to reply back
@@ -59,7 +57,9 @@ if (strpos($_msg,'-sitetech') !== false ){
                         'messages' => [$messages]
                     ];
                     break;  
-            
+                }
+            }
+            break;
         }
     }
 }
@@ -67,10 +67,11 @@ if (strpos($_msg,'-sitetech') !== false ){
 else if (strpos($_msg,'-siteaddr') !== false ){
     for ($i = 0 ; i<8 ; $i++){
         if ($bMsg == $Pdata[$i]){
-            
+                for ($j = 0 ; $j<3539 ;$j++){
+                    if ($SiteMsg == $Sitedata[$j]){
                     // Get text sent
-                    $text = $Sitedata.'
-    จ.'.$PROVINCE[$i].'  อ.'.$AMPHOE.'  ต.'.$TAMBON;
+                    $text = $Sitedata[$j].'
+    จ.'.$PROVINCE[$i].'  อ.'.$AMPHOE[$j].'  ต.'.$TAMBON[$j];
                     // Get replyToken
                     $replyToken = $events['events'][0]['replyToken'];
                     // Build message to reply back
@@ -85,21 +86,26 @@ else if (strpos($_msg,'-siteaddr') !== false ){
                         'messages' => [$messages]
                     ]; 
                     break;
+                }
+            }
+            break;
         }
     }
 }
 else if (strpos($_msg,'-siteloc') !== false ){
     for ($i = 0 ; i<8 ; $i++){
-        if ($bMsg == $Pdata[$i]){        
+        if ($bMsg == $Pdata[$i]){
+                for ($j = 0 ; $j<3539 ;$j++){
+                    if ($SiteMsg == $Sitedata[$j]){        
                     // Get replyToken
                     $replyToken = $events['events'][0]['replyToken'];
                     // Build message to reply back
                     $messages = [
                         'type'=> 'location',
-                        'title'=> $Sitedata,
-                        'address'=> 'จ.'.$PROVINCE[$i].' อ.'.$AMPHOE.' ต.'.$TAMBON,
-                        'latitude'=> $LATITUDE,
-                        'longitude'=> $LONGITUDE
+                        'title'=> $Sitedata[$j],
+                        'address'=> 'จ.'.$PROVINCE[$i].' อ.'.$AMPHOE[$j].' ต.'.$TAMBON[$j],
+                        'latitude'=> $LATITUDE[$j],
+                        'longitude'=> $LONGITUDE[$j]
                     ];
                     // Make a POST Request to Messaging API to reply to sender
                     $url = 'https://api.line.me/v2/bot/message/reply';
@@ -107,7 +113,10 @@ else if (strpos($_msg,'-siteloc') !== false ){
                         'replyToken' => $replyToken,
                         'messages' => [$messages]
                     ];
-                    break; 
+                    break;
+                }
+            }
+            break; 
         }
     }
 }
