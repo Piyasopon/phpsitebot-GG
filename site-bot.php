@@ -13,11 +13,11 @@ $cMsg = substr($SiteMRF,-7,4);
 $dMsg = substr($SiteMRF,-7,5);
 $Pdata = array("CMI","CRI","LPG","LPN","MHS","NAN","PHE","PYO");
 $PROVINCE = array("เชียงใหม่", "เชียงราย", "ลำปาง", "ลำพูน", "แม่ฮ่องสอน", "นาน", "แพร่", "พะเยา");
-$Sitedata= "XXXxxxx";
-$AMPHOE="xxxxxxxxxxxx";
-$TAMBON="xxxxxxxxx";
-$LATITUDE="90";
-$LONGITUDE="0";
+$Sitedata= "CMI0027";
+$AMPHOE="เมืองเชียงใหม่";
+$TAMBON="หายยา";
+$LATITUDE=18.78013;
+$LONGITUDE=98.98756;
 $G900="Active";
 $U850="Active";
 $U2100="Active";
@@ -26,27 +26,6 @@ $L1800="Active";
 $L900="Active";
 $CMIL = array("CMI0027",	"เมืองเชียงใหม่",	"หายยา",	"18.78013",	"98.98756",	"Active",	"Active",	"Active",	"Active",	"Active",	"Active");
 
-
-for($i=0;i<8;i++){
-    if($bMsg==$Pdata[$i]){
-        for($a=0;$a<42;$a++){
-            if($SiteMRF==$CMIL[$a]){            
-                $Sitedata= $CMIL[0];
-                $AMPHOE=$CMIL[1];
-                $TAMBON=$CMIL[2];
-                $LATITUDE=$CMIL[3];
-                $LONGITUDE=$CMIL[4];
-                $G900=$CMIL[5];
-                $U850=$CMIL[6];
-                $U2100=$CMIL[7];
-                $L2100=$CMIL[8];
-                $L1800=$CMIL[9];
-                $L900=$CMIL[10];
-                break;
-            }
-        }
-    }
-}
 
 if ($Sitedata== "XXXxxxx";) {
     $text='ไม่พบข้อมูล'.$SiteMRF;
