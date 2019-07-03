@@ -404,7 +404,7 @@ array("CMIA050",	"#N/A",	"#N/A",	90,	0,	"Active",	"Active",	"",	"",	"",	"Active"
 
 for($i=0;$i<8;$i++){
     if($bMsg==$Pdata[$i]){
-        for($a=0;$a<196;$a++){
+        for($a=0;$a<400;$a++){
             if($SiteMRF==$CMIL[$a][0]){            
                 $Sitedata= $CMIL[$a][0];
                 $AMPHOE=$CMIL[$a][1];
