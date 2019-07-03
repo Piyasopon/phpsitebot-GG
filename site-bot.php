@@ -7,10 +7,9 @@ $events = json_decode($content, true);
 $_msg = $events['events'][0]['message']['text'];
 
 $SiteMsg = substr($_msg,-7);
-$SiteMRF = strtoupper($SiteMsg);
-$bMsg = substr($SiteMRF,-7,3);
-$cMsg = substr($SiteMRF,-7,4);
-$dMsg = substr($SiteMRF,-7,5);
+$bMsg = substr($_msg,-7,-4);
+$cMsg = substr($_msg,-7,-3);
+$dMsg = substr($_msg,-7,-2);
 $Pdata = array("CMI","CRI","LPG","LPN","MHS","NAN","PHE","PYO");
 $PROVINCE = array("เชียงใหม่", "เชียงราย", "ลำปาง", "ลำพูน", "แม่ฮ่องสอน", "นาน", "แพร่", "พะเยา");
 $Sitedata= "CMI0027";
@@ -28,7 +27,7 @@ $CMIL = array("CMI0027",	"เมืองเชียงใหม่",	"หา�
 
 
 if ($Sitedata== "XXXxxxx";) {
-    $text='ไม่พบข้อมูล'.$SiteMRF;
+    $text='ไม่พบข้อมูล'.$SiteMsg;
     $replyToken = $events['events'][0]['replyToken'];
     $messages = [
         'type' => 'text',
@@ -132,6 +131,5 @@ $result = curl_exec($ch);
 curl_close($ch);
 echo $result . "";
 
-fclose($objCSV);
 echo "OK";
 ?>
