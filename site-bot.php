@@ -47,7 +47,7 @@ if (strpos($_msg,'-sitetech') !== false ){
 }
 else if (strpos($_msg,'-siteaddr') !== false ){
     $text = $Sitedata.'
-    จ.'.$PROVINCE[$i].'  อ.'.$AMPHOE.'  ต.'.$TAMBON;
+    จ.'.$PROVINCE[0].'  อ.'.$AMPHOE.'  ต.'.$TAMBON;
     $replyToken = $events['events'][0]['replyToken'];
     $messages = [
         'type' => 'text',
@@ -64,7 +64,7 @@ else if (strpos($_msg,'-siteloc') !== false ){
     $messages = [
         'type'=> 'location',
         'title'=> $Sitedata,
-        'address'=> 'จ.'.$PROVINCE[$i].' อ.'.$AMPHOE.' ต.'.$TAMBON,
+        'address'=> 'จ.'.$PROVINCE[0].' อ.'.$AMPHOE.' ต.'.$TAMBON,
         'latitude'=> $LATITUDE,
         'longitude'=> $LONGITUDE
     ];
