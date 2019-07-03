@@ -184,12 +184,51 @@ array("CMI1994",	"แม่ริม",	"สันโป่ง",	18.94278,	98.971
 array("CMI1995",	"แม่ออน",	"ห้วยแก้ว",	18.86247,	99.2748,	"Active",	"Active",	"Active",	"Active",	"",	"Active",),
 array("CMI1996",	"สันป่าตอง",	"มะขุนหวาน",	18.56205,	98.91027,	"Active",	"Active",	"Active",	"Active",	"Active",	"Active",),
 array("CMI1998",	"สันทราย",	"แม่แฝก",	19.0347,	98.96908,	"Active",	"Active",	"Active",	"Active",	"",	"Active",),
+array("CMI2001",	"แม่ริม",	"แม่แรม",	18.8884,	98.85986,	"Active",	"Active",	"Active",	"Active",	"Active",	"Active",),
+array("CMI2003",	"เมืองเชียงใหม่",	"ช้างเผือก",	18.80596,	98.89903,	"",	"Active",	"",	"",	"",	"",),
+array("CMI2006",	"เมืองเชียงใหม่",	"สันผีเสื้อ",	18.843,	99.0053,	"Active",	"Active",	"Active",	"Active",	"Active",	"Active",),
+array("CMI2007",	"สารภี",	"ท่าวังตาล",	18.73923,	98.99058,	"Active",	"Active",	"Active",	"Active",	"Active",	"Active",),
+array("CMI2008",	"หางดง",	"สบแม่ข่า",	18.68171,	98.9834,	"",	"",	"Active",	"Active",	"Active",	"",),
+array("CMI2009",	"สันทราย",	"สันป่าเปา",	18.84912,	99.08229,	"Active",	"",	"Active",	"Active",	"Active",	"Active",),
+array("CMI2011",	"เมืองเชียงใหม่",	"สุเทพ",	18.7776,	98.9508,	"Active",	"Active",	"Active",	"Active",	"Active",	"Active",),
+array("CMI2012",	"เมืองเชียงใหม่",	"แม่เหียะ",	18.74841,	98.93932,	"Active",	"Active",	"Active",	"Active",	"Active",	"Active",),
+array("CMI2013",	"เมืองเชียงใหม่",	"ช้างเผือก",	18.80332,	98.92077,	"Active",	"Active",	"Active",	"Active",	"Active",	"Active",),
+array("CMI2014",	"เมืองเชียงใหม่",	"สุเทพ",	18.80036,	98.9652,	"Active",	"Active",	"Active",	"Active",	"Active",	"Active",),
+array("CMI2015",	"สันทราย",	"หนองหาร",	18.89578,	99.01285,	"Active",	"Active",	"Active",	"Active",	"Active",	"Active",),
+array("CMI2019",	"แม่วาง",	"บ้านกาด",	18.6015,	98.8263,	"Active",	"Active",	"Active",	"Active",	"Active",	"Active",),
+array("CMI2020",	"ฝาง",	"แม่งอน",	19.89443,	99.0455,	"Active",	"Active",	"Active",	"Active",	"",	"Active",),
+array("CMI2021",	"แม่ริม",	"โป่งแยง",	18.89016,	98.84571,	"Active",	"Active",	"Active",	"Active",	"Active",	"Active",),
+array("CMI2030",	"หางดง",	"หนองตอง",	18.61654,	98.95545,	"Active",	"Active",	"Active",	"Active",	"Active",	"Active",),
+array("CMI2053",	"ดอยสะเก็ด",	"เชิงดอย",	18.8725,	99.13195,	"Active",	"",	"Active",	"Active",	"Active",	"Active",),
+array("CMI2115",	"ไชยปราการ",	"หนองบัว",	19.72965,	99.13844,	"Active",	"Active",	"Active",	"Active",	"",	"Active",),
+array("CMI2116",	"ฝาง",	"เวียง",	19.9168,	99.20951,	"Active",	"Active",	"Active",	"Active",	"Active",	"Active",),
+array("CMI2118",	"พร้าว",	"เวียง",	19.3718,	99.2012,	"Active",	"",	"Active",	"Active",	"",	"Active",),
+array("CMI2250",	"เชียงดาว",	"เชียงดาว",	19.3665,	98.9613,	"Active",	"",	"Active",	"Active",	"",	"Active",),
+array("CMI2251",	"แม่อาย",	"มะลิกา",	20.0364,	99.3026,	"Active",	"",	"Active",	"Active",	"",	"Active",),
+array("CMI2381",	"สะเมิง",	"สะเมิงใต้",	18.8563,	98.7304,	"Active",	"",	"Active",	"Active",	"",	"Active",),
+array("CMI2600",	"เมืองเชียงใหม่",	"สุเทพ",	18.81044,	98.94783,	"Active",	"Active",	"Active",	"Active",	"Active",	"Active",),
+array("CMI2699",	"แม่ออน",	"ห้วยแก้ว",	18.86586,	99.35579,	"Active",	"Active",	"Active",	"Active",	"Active",	"Active",),
+array("CMI3010",	"ดอยสะเก็ด",	"ป่าเมี่ยง",	19.01778,	99.30689,	"Active",	"",	"",	"",	"",	"Active",),
+array("CMI3012",	"ดอยสะเก็ด",	"ป่าเมี่ยง",	18.9619,	99.2356,	"Active",	"Active",	"",	"",	"",	"Active",),
+array("CMI3015",	"ดอยสะเก็ด",	"ป่าเมี่ยง",	18.99,	99.2733,	"Active",	"Active",	"",	"",	"",	"Active",),
+array("CMI3017",	"สันกำแพง",	"ร้องวัวแดง",	18.7414,	99.1963,	"Active",	"",	"Active",	"Active",	"",	"Active",),
+array("CMI3117",	"ฝาง",	"แม่สูน",	19.81107,	99.16655,	"Active",	"",	"Active",	"Active",	"",	"Active",),
+array("CMI3186",	"ดอยสะเก็ด",	"ป่าเมี่ยง",	18.91572,	99.23225,	"Active",	"",	"",	"",	"",	"Active",),
+array("CMI3189",	"ดอยสะเก็ด",	"ป่าเมี่ยง",	19.06134,	99.36284,	"Active",	"Active",	"",	"",	"",	"Active",),
+array("CMI5500",	"สันทราย",	"แม่แฝกใหม่",	18.96524,	98.98592,	"Active",	"",	"Active",	"Active",	"Active",	"Active",),
+array("CMI5506",	"แม่ออน",	"บ้านสหกรณ์",	18.79561,	99.24625,	"Active",	"",	"",	"",	"",	"Active",),
+array("CMI5507",	"สันกำแพง",	"ห้วยทราย",	18.77247,	99.15461,	"Active",	"Active",	"Active",	"Active",	"",	"Active",),
+array("CMI5508",	"สันป่าตอง",	"สันกลาง",	18.66904,	98.8806,	"",	"",	"Active",	"Active",	"",	"",),
+array("CMI5520",	"ดอยสะเก็ด",	"ลวงเหนือ",	18.90934,	99.13422,	"Active",	"Active",	"",	"",	"",	"Active",),
+array("CMI5566",	"จอมทอง",	"แม่สอย",	18.29267,	98.65364,	"",	"",	"Active",	"Active",	"",	"",),
+array("CMI5607",	"แม่แตง",	"แม่หอพระ",	19.06966,	99.07933,	"Active",	"",	"",	"",	"",	"Active",),
+array("CMI5670",	"อมก๋อย",	"แม่ตื่น",	17.4448,	98.36014,	"",	"",	"Active",	"Active",	"",	"",),
 );
 
 
 for($i=0;$i<8;$i++){
     if($bMsg==$Pdata[$i]){
-        for($a=0;$a<157;$a++){
+        for($a=0;$a<196;$a++){
             if($SiteMRF==$CMIL[$a][0]){            
                 $Sitedata= $CMIL[$a][0];
                 $AMPHOE=$CMIL[$a][1];
