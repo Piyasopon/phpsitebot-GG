@@ -459,26 +459,6 @@ array("CMI6996",	"เมืองเชียงใหม่",	"ช้างเ�
 array("CMI6998",	"เมืองเชียงใหม่",	"แม่เหียะ",	18.76001,	98.91441,	"Active",	"Active",	"",	"",	"",	"Active",),
 array("CMI6999",	"แม่ออน",	"ห้วยแก้ว",	18.8577,	99.3579,	"Active",	"",	"",	"",	"",	"Active",),
 );
-function sreachcri($SiteMRF){
-for($a=0;$a<700;$a++){
-    if($SiteMRF==$CMIL[$a][0]){            
-        $Sitedata= $CMIL[$a][0];
-        $AMPHOE=$CMIL[$a][1];
-        $TAMBON=$CMIL[$a][2];
-        $LATITUDE=$CMIL[$a][3];
-        $LONGITUDE=$CMIL[$a][4];
-        $G900=$CMIL[$a][5];
-        $U850=$CMIL[$a][6];
-        $U2100=$CMIL[$a][7];
-        $L2100=$CMIL[$a][8];
-        $L1800=$CMIL[$a][9];
-        $L900=$CMIL[$a][10];
-        break;
-        }
-  
-    }
-    return $Sitedata,$AMPHOE,$TAMBON,$LATITUDE,$LONGITUDE,$G900,$U850,$U2100,$L2100,$L1800,$L900;
-}
 
 echo "OK crisite";
 ?>
