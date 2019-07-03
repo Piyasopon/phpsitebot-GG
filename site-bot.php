@@ -3,6 +3,7 @@
 $access_token = 'OQyobbkeIxjWwJQxsbGeXH/tUGgjeF92a1MwWk4CnQ8R8f5UOnf84SFiApseMJLsl9K4JumE/4wRNyjFmcbfR64jQIXfYaJzRNiqV968mzSpacYpGpdICwBx29tQiQmufK6dYF5wgQDhRTBIhel5GwdB04t89/1O/w1cDnyilFU=';
 $content = file_get_contents('php://input');
 $events = json_decode($content, true);
+
 $_msg = $events['events'][0]['message']['text'];
 
 $SiteMsg = substr($_msg,-7);
