@@ -27,6 +27,123 @@ $L2100="Active";
 $L1800="Active";
 $L900="Active";
 
+for($i=0;$i<8;$i++){
+    if($bMsg==$Pdata[$i]){
+        for($a=0;$a<700;$a++){
+            if($SiteMRF==$CMIL[$a][0]){            
+                $Sitedata= $CMIL[$a][0];
+                $AMPHOE=$CMIL[$a][1];
+                $TAMBON=$CMIL[$a][2];
+                $LATITUDE=$CMIL[$a][3];
+                $LONGITUDE=$CMIL[$a][4];
+                $G900=$CMIL[$a][5];
+                $U850=$CMIL[$a][6];
+                $U2100=$CMIL[$a][7];
+                $L2100=$CMIL[$a][8];
+                $L1800=$CMIL[$a][9];
+                $L900=$CMIL[$a][10];
+                break;
+            }
+        }
+        break;
+    }
+}
+
+
+if (strpos($_msg,'-sitetech') !== false ){
+    $text = $Sitedata.'
+    G900  : '.$G900.'
+    U850  : '.$U850.'
+    U2100 : '.$U2100.'
+    L2100 : '.$L2100.'
+    L1800 : '.$L1800.'
+    L900  : '.$L900;
+    $replyToken = $events['events'][0]['replyToken'];
+    $messages = [
+        'type' => 'text',
+        'text' => $text,
+    ];
+    $url = 'https://api.line.me/v2/bot/message/reply';
+    $data = [
+        'replyToken' => $replyToken,
+        'messages' => [$messages]
+    ];
+
+}
+
+else if (strpos($_msg,'-siteaddr') !== false ){
+    $text = $Sitedata.'
+    จ.'.$PROVINCE[$i].'  อ.'.$AMPHOE.'  ต.'.$TAMBON;
+    $replyToken = $events['events'][0]['replyToken'];
+    $messages = [
+        'type' => 'text',
+        'text' => $text,
+    ];
+    $url = 'https://api.line.me/v2/bot/message/reply';
+    $data = [
+        'replyToken' => $replyToken,
+        'messages' => [$messages]
+    ]; 
+}
+else if (strpos($_msg,'-siteloc') !== false ){      
+    $replyToken = $events['events'][0]['replyToken'];
+    $messages = [
+        'type'=> 'location',
+        'title'=> $Sitedata,
+        'address'=> 'จ.'.$PROVINCE[$i].' อ.'.$AMPHOE.' ต.'.$TAMBON,
+        'latitude'=> $LATITUDE,
+        'longitude'=> $LONGITUDE
+    ];
+    $url = 'https://api.line.me/v2/bot/message/reply';
+    $data = [
+        'replyToken' => $replyToken,
+        'messages' => [$messages]
+    ];
+}
+else if (strpos($_msg,'-help') !== false ){
+    $text = 'เรามีข้อมูลของจังหวัดดังนี้
+    เชียงใหม่ เชียงราย ลำปาง ลำพูน แม่ฮ่องสอน นาน พะเยา และแพร่
+เรียกใช้ผ่านฟังก์ชัน
+    -siteaddr XXXxxxx  ใช้หาที่อยู่ไซต์
+    -sitetech XXXxxxx  ใช้หาเทคโนโลยีที่มีในไซต์
+    -siteloc XXXxxxx  ใช้หาโลเคชั่นไซต์';
+    $replyToken = $events['events'][0]['replyToken'];
+    $messages = [
+            'type' => 'text',
+            'text' => $text,
+    ];
+    $url = 'https://api.line.me/v2/bot/message/reply';
+    $data = [
+        'replyToken' => $replyToken,
+        'messages' => [$messages]
+    ];    
+}
+else{
+    $text = 'ไม่พบข้อมูล '.$_msg;
+    $replyToken = $events['events'][0]['replyToken'];
+    $messages = [
+        'type' => 'text',
+        'text' => $text,
+    ];
+    $url = 'https://api.line.me/v2/bot/message/reply';
+    $data = [
+        'replyToken' => $replyToken,
+        'messages' => [$messages]
+    ];
+}
+
+$post = json_encode($data);
+$headers = array('Content-Type: application/json', 'Authorization: Bearer ' . $access_token);
+$ch = curl_init($url);
+curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "POST");
+curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+curl_setopt($ch, CURLOPT_POSTFIELDS, $post);
+curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
+curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 1);
+$result = curl_exec($ch);
+curl_close($ch);
+echo $result . "";
+
 $CMIL = array(array("CRI0001",	"เมืองเชียงราย",	"รอบเวียง",	19.9108,	99.8513,	"Active",	"Active",	"Active",	"Active",	"Active",	"Active",),
 array("CRI0002",	"เมืองเชียงราย",	"ริมกก",	19.92716,	99.8416,	"Active",	"Active",	"Active",	"Active",	"Active",	"Active",),
 array("CRI0003",	"เมืองเชียงราย",	"เวียง",	19.9025,	99.8399,	"Active",	"Active",	"Active",	"Active",	"Active",	"Active",),
@@ -718,123 +835,6 @@ array("CRI9001",	"เมืองเชียงราย",	"รอบเวี�
 array("CRI9005",	"เมืองเชียงราย",	"รอบเวียง",	19.88559,	99.83325,	"",	"Active",	"",	"",	"",	"",),
 );
 
-
-for($i=0;$i<8;$i++){
-    if($bMsg==$Pdata[$i]){
-        for($a=0;$a<700;$a++){
-            if($SiteMRF==$CMIL[$a][0]){            
-                $Sitedata= $CMIL[$a][0];
-                $AMPHOE=$CMIL[$a][1];
-                $TAMBON=$CMIL[$a][2];
-                $LATITUDE=$CMIL[$a][3];
-                $LONGITUDE=$CMIL[$a][4];
-                $G900=$CMIL[$a][5];
-                $U850=$CMIL[$a][6];
-                $U2100=$CMIL[$a][7];
-                $L2100=$CMIL[$a][8];
-                $L1800=$CMIL[$a][9];
-                $L900=$CMIL[$a][10];
-                break;
-            }
-        }
-        break;
-    }
-}
-
-
-if (strpos($_msg,'-sitetech') !== false ){
-    $text = $Sitedata.'
-    G900  : '.$G900.'
-    U850  : '.$U850.'
-    U2100 : '.$U2100.'
-    L2100 : '.$L2100.'
-    L1800 : '.$L1800.'
-    L900  : '.$L900;
-    $replyToken = $events['events'][0]['replyToken'];
-    $messages = [
-        'type' => 'text',
-        'text' => $text,
-    ];
-    $url = 'https://api.line.me/v2/bot/message/reply';
-    $data = [
-        'replyToken' => $replyToken,
-        'messages' => [$messages]
-    ];
-
-}
-
-else if (strpos($_msg,'-siteaddr') !== false ){
-    $text = $Sitedata.'
-    จ.'.$PROVINCE[$i].'  อ.'.$AMPHOE.'  ต.'.$TAMBON;
-    $replyToken = $events['events'][0]['replyToken'];
-    $messages = [
-        'type' => 'text',
-        'text' => $text,
-    ];
-    $url = 'https://api.line.me/v2/bot/message/reply';
-    $data = [
-        'replyToken' => $replyToken,
-        'messages' => [$messages]
-    ]; 
-}
-else if (strpos($_msg,'-siteloc') !== false ){      
-    $replyToken = $events['events'][0]['replyToken'];
-    $messages = [
-        'type'=> 'location',
-        'title'=> $Sitedata,
-        'address'=> 'จ.'.$PROVINCE[$i].' อ.'.$AMPHOE.' ต.'.$TAMBON,
-        'latitude'=> $LATITUDE,
-        'longitude'=> $LONGITUDE
-    ];
-    $url = 'https://api.line.me/v2/bot/message/reply';
-    $data = [
-        'replyToken' => $replyToken,
-        'messages' => [$messages]
-    ];
-}
-else if (strpos($_msg,'-help') !== false ){
-    $text = 'เรามีข้อมูลของจังหวัดดังนี้
-    เชียงใหม่ เชียงราย ลำปาง ลำพูน แม่ฮ่องสอน นาน พะเยา และแพร่
-เรียกใช้ผ่านฟังก์ชัน
-    -siteaddr XXXxxxx  ใช้หาที่อยู่ไซต์
-    -sitetech XXXxxxx  ใช้หาเทคโนโลยีที่มีในไซต์
-    -siteloc XXXxxxx  ใช้หาโลเคชั่นไซต์';
-    $replyToken = $events['events'][0]['replyToken'];
-    $messages = [
-            'type' => 'text',
-            'text' => $text,
-    ];
-    $url = 'https://api.line.me/v2/bot/message/reply';
-    $data = [
-        'replyToken' => $replyToken,
-        'messages' => [$messages]
-    ];    
-}
-else{
-    $text = 'ไม่พบข้อมูล '.$_msg;
-    $replyToken = $events['events'][0]['replyToken'];
-    $messages = [
-        'type' => 'text',
-        'text' => $text,
-    ];
-    $url = 'https://api.line.me/v2/bot/message/reply';
-    $data = [
-        'replyToken' => $replyToken,
-        'messages' => [$messages]
-    ];
-}
-
-$post = json_encode($data);
-$headers = array('Content-Type: application/json', 'Authorization: Bearer ' . $access_token);
-$ch = curl_init($url);
-curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "POST");
-curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-curl_setopt($ch, CURLOPT_POSTFIELDS, $post);
-curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
-curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 1);
-$result = curl_exec($ch);
-curl_close($ch);
-echo $result . "";
 
 
 echo "OK";
