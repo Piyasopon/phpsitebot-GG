@@ -4,11 +4,12 @@ $access_token = 'OQyobbkeIxjWwJQxsbGeXH/tUGgjeF92a1MwWk4CnQ8R8f5UOnf84SFiApseMJL
 $content = file_get_contents('php://input');
 $events = json_decode($content, true);
 $_msg = $events['events'][0]['message']['text'];
+
 $SiteMsg = substr($_msg,-7);
 $SiteMRF = strtoupper($SiteMsg);
-$bMsg = substr($SiteMRF,0,3);
-$cMsg = substr($SiteMRF,0,4);
-$dMsg = substr($SiteMRF,0,5);
+$bMsg = substr($SiteMRF,-7,3);
+$cMsg = substr($SiteMRF,-7,4);
+$dMsg = substr($SiteMRF,-7,5);
 $Pdata = array("CMI","CRI","LPG","LPN","MHS","NAN","PHE","PYO");
 $PROVINCE = array("เชียงใหม่", "เชียงราย", "ลำปาง", "ลำพูน", "แม่ฮ่องสอน", "นาน", "แพร่", "พะเยา");
 $Sitedata= "XXXxxxx";
@@ -22,7 +23,6 @@ $U2100="Active";
 $L2100="Active";
 $L1800="Active";
 $L900="Active";
-
 $CMIL = array("CMI0027",	"เมืองเชียงใหม่",	"หายยา",	"18.78013",	"98.98756",	"Active",	"Active",	"Active",	"Active",	"Active",	"Active");
 
 for($i=0;i<8;i++){
@@ -77,9 +77,7 @@ else if (strpos($_msg,'-sitetech') !== false ){
         'replyToken' => $replyToken,
         'messages' => [$messages]
     ];
-
 }
-
 else if (strpos($_msg,'-siteaddr') !== false ){
     $text = $Sitedata.'
     จ.'.$PROVINCE[$i].'  อ.'.$AMPHOE.'  ต.'.$TAMBON;
