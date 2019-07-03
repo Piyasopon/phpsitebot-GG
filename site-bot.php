@@ -26,20 +26,7 @@ $L900="Active";
 $CMIL = array("CMI0027",	"เมืองเชียงใหม่",	"หายยา",	"18.78013",	"98.98756",	"Active",	"Active",	"Active",	"Active",	"Active",	"Active");
 
 
-if ($Sitedata== "XXXxxxx";) {
-    $text='ไม่พบข้อมูล'.$SiteMsg;
-    $replyToken = $events['events'][0]['replyToken'];
-    $messages = [
-        'type' => 'text',
-        'text' => $text,
-    ];
-    $url = 'https://api.line.me/v2/bot/message/reply';
-    $data = [
-        'replyToken' => $replyToken,
-        'messages' => [$messages]
-    ];
-}
-else if (strpos($_msg,'-sitetech') !== false ){
+if (strpos($_msg,'-sitetech') !== false ){
     $text = $Sitedata.'
     G900  : '.$G900.'
     U850  : '.$U850.'
