@@ -146,7 +146,8 @@ $result = curl_exec($ch);
 curl_close($ch);
 echo $result . "";
 
-function CRISITE(){$CMIL = array(array("CRI0001",	"เมืองเชียงราย",	"รอบเวียง",	19.9108,	99.8513,	"Active",	"Active",	"Active",	"Active",	"Active",	"Active",),
+function CRISITE() {
+$GLOBALS ['CMIL'] = array(array("CRI0001",	"เมืองเชียงราย",	"รอบเวียง",	19.9108,	99.8513,	"Active",	"Active",	"Active",	"Active",	"Active",	"Active",),
 array("CRI0002",	"เมืองเชียงราย",	"ริมกก",	19.92716,	99.8416,	"Active",	"Active",	"Active",	"Active",	"Active",	"Active",),
 array("CRI0003",	"เมืองเชียงราย",	"เวียง",	19.9025,	99.8399,	"Active",	"Active",	"Active",	"Active",	"Active",	"Active",),
 array("CRI0004",	"เมืองเชียงราย",	"รอบเวียง",	19.8896,	99.8368,	"",	"Active",	"Active",	"Active",	"Active",	"",),
