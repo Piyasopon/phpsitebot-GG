@@ -25,6 +25,7 @@ $L1800="Active";
 $L900="Active";
 $CMIL = array("CMI0027",	"เมืองเชียงใหม่",	"หายยา",	"18.78013",	"98.98756",	"Active",	"Active",	"Active",	"Active",	"Active",	"Active");
 
+
 for($i=0;i<8;i++){
     if($bMsg==$Pdata[$i]){
         for($a=0;$a<42;$a++){
