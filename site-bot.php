@@ -26,16 +26,8 @@ $L2100="Active";
 $L1800="Active";
 $L900="Active";
 
-if ($cMsg == "CMI6"){CMI6SITE();}
-else if ($cMsg == "CMI7"){CMI7SITE();}
-else if ($bMsg == "CMI"){CMISITE();}
-else if ($bMsg == "CRI"){CRISITE();}
-else if ($bMsg == "MSH"){MHSSITE();}
-else if ($bMsg == "LPG"){LPGSITE();}
-else if ($bMsg == "LPN"){LPNSITE();}
-else if ($bMsg == "NAN"){NANSITE();}
-else if ($bMsg == "PYO"){PYOSITE();}
-else {PHESITE();}
+if ($bMsg == "CRI"){CRISITE();}
+
 
 
 for($i=0;$i<8;$i++){
