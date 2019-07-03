@@ -189,7 +189,7 @@ array("CMI1998",	"สันทราย",	"แม่แฝก",	19.0347,	98.9690
 
 for($i=0;$i<8;$i++){
     if($bMsg==$Pdata[$i]){
-        for($a=0;$a<42;$a++){
+        for($a=0;$a<157;$a++){
             if($SiteMRF==$CMIL[$a][0]){            
                 $Sitedata= $CMIL[$a][0];
                 $AMPHOE=$CMIL[$a][1];
