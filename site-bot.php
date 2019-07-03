@@ -849,6 +849,11 @@ $CMIL = array(array("PYO1148",	"จุน",	"ห้วยข้าวก่ำ",
     array("PYO1521",	"เมืองพะเยา",	"แม่กา",	19.0264,	99.8906,	"Active",	"",	"Active",	"Active",	"Active",	"Active",),
     array("PYO1521",	"เมืองพะเยา",	"แม่กา",	19.0264,	99.8906,	"Active",	"",	"Active",	"Active",	"Active",	"Active",),
     array("PYO1521",	"เมืองพะเยา",	"แม่กา",	19.0264,	99.8906,	"Active",	"",	"Active",	"Active",	"Active",	"Active",),
+    array("PYO1521",	"เมืองพะเยา",	"แม่กา",	19.0264,	99.8906,	"Active",	"",	"Active",	"Active",	"Active",	"Active",),
+    array("PYO1521",	"เมืองพะเยา",	"แม่กา",	19.0264,	99.8906,	"Active",	"",	"Active",	"Active",	"Active",	"Active",),
+    array("PYO1521",	"เมืองพะเยา",	"แม่กา",	19.0264,	99.8906,	"Active",	"",	"Active",	"Active",	"Active",	"Active",),
+    array("PYO1521",	"เมืองพะเยา",	"แม่กา",	19.0264,	99.8906,	"Active",	"",	"Active",	"Active",	"Active",	"Active",),
+    array("PYO1521",	"เมืองพะเยา",	"แม่กา",	19.0264,	99.8906,	"Active",	"",	"Active",	"Active",	"Active",	"Active",),
 );
 
 echo "OK";
