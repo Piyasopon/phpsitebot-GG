@@ -28,8 +28,7 @@ $L900="Active";
 
 if ($cMsg == "CMI7"){CMI7SITE();}
 else if ($cMsg == "CMI6"){CMI6SITE();}
-
-if ($bMsg == "CRI"){CRISITE();}
+else if ($bMsg == "CRI"){CRISITE();}
 else if ($bMsg == "CMI"){CMISITE();}
 else if ($bMsg == "PYO"){PYOSITE();}
 else if ($bMsg == "PHE"){PHESITE();}
