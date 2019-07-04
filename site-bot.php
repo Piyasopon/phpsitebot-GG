@@ -101,7 +101,7 @@ else if (strpos($_msg,'-siteloc') !== false ){
     $messages = [
         'type'=> 'location',
         'title'=> $Sitedata,
-        'address'=> 'จ.'.$PROVINCE[$i].' อ.'.$AMPHOE.' ต.'.$TAMBON,
+        'address'=> 'ต.'.$TAMBON.' อ.'.$AMPHOE.' จ.'.$PROVINCE[$i],
         'latitude'=> $LATITUDE,
         'longitude'=> $LONGITUDE
     ];
