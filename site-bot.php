@@ -27,7 +27,6 @@ $L1800="Active";
 $L900="Active";
 
 if ($bMsg == "CRI"){CRISITE();}
-else if ($cMsg == "CMI6"){CMI6SITE();}
 else if ($bMsg == "CMI"){CMISITE();}
 
 
