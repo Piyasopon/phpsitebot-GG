@@ -84,7 +84,7 @@ if (strpos($_msg,'-sitetech') !== false ){
 
 else if (strpos($_msg,'-siteaddr') !== false ){
     $text = $Sitedata.'
-    จ.'.$PROVINCE[$i].'  อ.'.$AMPHOE.'  ต.'.$TAMBON;
+    ต.'.$TAMBON.'  อ.'.$AMPHOE.'  จ.'.$PROVINCE[$i];
     $replyToken = $events['events'][0]['replyToken'];
     $messages = [
         'type' => 'text',
