@@ -31,7 +31,11 @@ $U2100="Active";
 $L2100="Active";
 $L1800="Active";
 $L900="Active";
-if ($id2 == 'C58d56cb4045082304f1de057ad613d30'){
+$ALUserID = array('U539d05590b586ea7c8c4b3141c0a642f','Uc40296b6f23838c56dd035afb140df2f','U8932b6feb22e565f6b1f6fea466b9131');
+
+for ($o = 0;$o <3; $0++){if ($ALUserID[$o] == $id1){break;}}
+
+if ($id2 == 'C58d56cb4045082304f1de057ad613d30'||$id1 == $ALUserID[$o]){
     if (strpos($_msg,'-') !== false ){
 
         if ($cMsg == "CMI7"){CMI7SITE();}
