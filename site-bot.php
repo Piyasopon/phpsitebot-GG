@@ -113,7 +113,7 @@ else if (strpos($_msg,'-siteloc') !== false ){
 }
 else if (strpos($_msg,'-help') !== false ){
     $text = 'สวัสดีครับ
-ผมมีคำสังดังนี้
+ผมมีคำสั่งดังนี้
     -siteaddr XXXxxxx  ใช้หาเขตพื้นที่ตั้งของไซต์
     -sitetech XXXxxxx  ใช้หาเทคโนโลยีที่มีในไซต์
     -siteloc XXXxxxx  ใช้หาพิกัด GPS ของไซต์';
