@@ -3,6 +3,12 @@
 $access_token = 'OQyobbkeIxjWwJQxsbGeXH/tUGgjeF92a1MwWk4CnQ8R8f5UOnf84SFiApseMJLsl9K4JumE/4wRNyjFmcbfR64jQIXfYaJzRNiqV968mzSpacYpGpdICwBx29tQiQmufK6dYF5wgQDhRTBIhel5GwdB04t89/1O/w1cDnyilFU=';
 // Get POST body content
 $content = file_get_contents('php://input');
+$arrayHeader = array();
+   $arrayHeader[] = "Content-Type: application/json";
+   $arrayHeader[] = "Authorization: Bearer {$accessToken}";
+    $id1 = $arrayJson['events'][0]['source']['userId'];
+    $id2 = $arrayJson['events'][0]['source']['groupId'];
+    $id3 = $arrayJson['events'][0]['source']['room'];
 // Parse JSON
 $events = json_decode($content, true);
 // Validate parsed JSON data
@@ -26,97 +32,127 @@ $L2100="Active";
 $L1800="Active";
 $L900="Active";
 
-if ($cMsg == "CMI7"){CMI7SITE();}
-else if ($cMsg == "CMI6"){CMI6SITE();}
-else if ($bMsg == "CRI"){CRISITE();}
-else if ($bMsg == "CMI"){CMISITE();}
-else if ($bMsg == "PYO"){PYOSITE();}
-else if ($bMsg == "PHE"){PHESITE();}
-else if ($bMsg == "NAN"){NANSITE();}
-else if ($bMsg == "MHS"){MHSSITE();}
-else if ($bMsg == "LPN"){LPNSITE();}
-else if ($bMsg == "LPG"){LPGSITE();}
+if (strpos($_msg,'-') !== false ){
+
+    if ($cMsg == "CMI7"){CMI7SITE();}
+    else if ($cMsg == "CMI6"){CMI6SITE();}
+    else if ($bMsg == "CRI"){CRISITE();}
+    else if ($bMsg == "CMI"){CMISITE();}
+    else if ($bMsg == "PYO"){PYOSITE();}
+    else if ($bMsg == "PHE"){PHESITE();}
+    else if ($bMsg == "NAN"){NANSITE();}
+    else if ($bMsg == "MHS"){MHSSITE();}
+    else if ($bMsg == "LPN"){LPNSITE();}
+    else if ($bMsg == "LPG"){LPGSITE();}
 
 
-for($i=0;$i<8;$i++){
-    if($bMsg==$Pdata[$i]){
-        for($a=0;$a<700;$a++){
-            if($SiteMRF==$CMIL[$a][0]){
-                $Sitedata= $CMIL[$a][0];
-                $AMPHOE=$CMIL[$a][1];
-                $TAMBON=$CMIL[$a][2];
-                $LATITUDE=$CMIL[$a][3];
-                $LONGITUDE=$CMIL[$a][4];
-                $G900=$CMIL[$a][5];
-                $U850=$CMIL[$a][6];
-                $U2100=$CMIL[$a][7];
-                $L2100=$CMIL[$a][8];
-                $L1800=$CMIL[$a][9];
-                $L900=$CMIL[$a][10];
-                break;
+    for($i=0;$i<8;$i++){
+        if($bMsg==$Pdata[$i]){
+            for($a=0;$a<700;$a++){
+                if($SiteMRF==$CMIL[$a][0]){
+                    $Sitedata= $CMIL[$a][0];
+                    $AMPHOE=$CMIL[$a][1];
+                    $TAMBON=$CMIL[$a][2];
+                    $LATITUDE=$CMIL[$a][3];
+                    $LONGITUDE=$CMIL[$a][4];
+                    $G900=$CMIL[$a][5];
+                    $U850=$CMIL[$a][6];
+                    $U2100=$CMIL[$a][7];
+                    $L2100=$CMIL[$a][8];
+                    $L1800=$CMIL[$a][9];
+                    $L900=$CMIL[$a][10];
+                    break;
+                }
             }
+            break;
         }
-        break;
+    }
+
+
+    if (strpos($_msg,'-sitetech') !== false ){
+        $text = $Sitedata.'
+        G900  : '.$G900.'
+        U850  : '.$U850.'
+        U2100 : '.$U2100.'
+        L2100 : '.$L2100.'
+        L1800 : '.$L1800.'
+        L900  : '.$L900;
+        $replyToken = $events['events'][0]['replyToken'];
+        $messages = [
+            'type' => 'text',
+            'text' => $text,
+        ];
+        $url = 'https://api.line.me/v2/bot/message/reply';
+        $data = [
+            'replyToken' => $replyToken,
+            'messages' => [$messages]
+        ];
+
+    }
+
+    else if (strpos($_msg,'-siteaddr') !== false ){
+        $text = $Sitedata.'
+        ต.'.$TAMBON.'  อ.'.$AMPHOE.'  จ.'.$PROVINCE[$i];
+        $replyToken = $events['events'][0]['replyToken'];
+        $messages = [
+            'type' => 'text',
+            'text' => $text,
+        ];
+        $url = 'https://api.line.me/v2/bot/message/reply';
+        $data = [
+            'replyToken' => $replyToken,
+            'messages' => [$messages]
+        ]; 
+    }
+    else if (strpos($_msg,'-siteloc') !== false ){      
+        $replyToken = $events['events'][0]['replyToken'];
+        $messages = [
+            'type'=> 'location',
+            'title'=> $Sitedata,
+            'address'=> 'ต.'.$TAMBON.' อ.'.$AMPHOE.' จ.'.$PROVINCE[$i],
+            'latitude'=> $LATITUDE,
+            'longitude'=> $LONGITUDE
+        ];
+        $url = 'https://api.line.me/v2/bot/message/reply';
+        $data = [
+            'replyToken' => $replyToken,
+            'messages' => [$messages]
+        ];
+    }
+    else if (strpos($_msg,'-help') !== false ){
+        $text = 'สวัสดีครับ
+    ผมมีคำสั่งดังนี้
+        -siteaddr XXXxxxx  ใช้หาเขตพื้นที่ตั้งของไซต์
+        -sitetech XXXxxxx  ใช้หาเทคโนโลยีที่มีในไซต์
+        -siteloc XXXxxxx  ใช้หาพิกัด GPS ของไซต์';
+        $replyToken = $events['events'][0]['replyToken'];
+        $messages = [
+                'type' => 'text',
+                'text' => $text,
+        ];
+        $url = 'https://api.line.me/v2/bot/message/reply';
+        $data = [
+            'replyToken' => $replyToken,
+            'messages' => [$messages]
+        ];    
+    }
+    else{
+        $text = 'ไม่พบข้อมูล '.$_msg;
+        $replyToken = $events['events'][0]['replyToken'];
+        $messages = [
+            'type' => 'text',
+            'text' => $text,
+        ];
+        $url = 'https://api.line.me/v2/bot/message/reply';
+        $data = [
+            'replyToken' => $replyToken,
+            'messages' => [$messages]
+        ];
     }
 }
 
-
-if (strpos($_msg,'-sitetech') !== false ){
-    $text = $Sitedata.'
-    G900  : '.$G900.'
-    U850  : '.$U850.'
-    U2100 : '.$U2100.'
-    L2100 : '.$L2100.'
-    L1800 : '.$L1800.'
-    L900  : '.$L900;
-    $replyToken = $events['events'][0]['replyToken'];
-    $messages = [
-        'type' => 'text',
-        'text' => $text,
-    ];
-    $url = 'https://api.line.me/v2/bot/message/reply';
-    $data = [
-        'replyToken' => $replyToken,
-        'messages' => [$messages]
-    ];
-
-}
-
-else if (strpos($_msg,'-siteaddr') !== false ){
-    $text = $Sitedata.'
-    ต.'.$TAMBON.'  อ.'.$AMPHOE.'  จ.'.$PROVINCE[$i];
-    $replyToken = $events['events'][0]['replyToken'];
-    $messages = [
-        'type' => 'text',
-        'text' => $text,
-    ];
-    $url = 'https://api.line.me/v2/bot/message/reply';
-    $data = [
-        'replyToken' => $replyToken,
-        'messages' => [$messages]
-    ]; 
-}
-else if (strpos($_msg,'-siteloc') !== false ){      
-    $replyToken = $events['events'][0]['replyToken'];
-    $messages = [
-        'type'=> 'location',
-        'title'=> $Sitedata,
-        'address'=> 'ต.'.$TAMBON.' อ.'.$AMPHOE.' จ.'.$PROVINCE[$i],
-        'latitude'=> $LATITUDE,
-        'longitude'=> $LONGITUDE
-    ];
-    $url = 'https://api.line.me/v2/bot/message/reply';
-    $data = [
-        'replyToken' => $replyToken,
-        'messages' => [$messages]
-    ];
-}
-else if (strpos($_msg,'-help') !== false ){
-    $text = 'สวัสดีครับ
-ผมมีคำสั่งดังนี้
-    -siteaddr XXXxxxx  ใช้หาเขตพื้นที่ตั้งของไซต์
-    -sitetech XXXxxxx  ใช้หาเทคโนโลยีที่มีในไซต์
-    -siteloc XXXxxxx  ใช้หาพิกัด GPS ของไซต์';
+else {
+    $text = $id1.'   '.$id2.'   '.$id3;
     $replyToken = $events['events'][0]['replyToken'];
     $messages = [
             'type' => 'text',
@@ -128,31 +164,18 @@ else if (strpos($_msg,'-help') !== false ){
         'messages' => [$messages]
     ];    
 }
-else{
-    $text = 'ไม่พบข้อมูล '.$_msg;
-    $replyToken = $events['events'][0]['replyToken'];
-    $messages = [
-        'type' => 'text',
-        'text' => $text,
-    ];
-    $url = 'https://api.line.me/v2/bot/message/reply';
-    $data = [
-        'replyToken' => $replyToken,
-        'messages' => [$messages]
-    ];
-}
+    $post = json_encode($data);
+    $headers = array('Content-Type: application/json', 'Authorization: Bearer ' . $access_token);
+    $ch = curl_init($url);
+    curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "POST");
+    curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+    curl_setopt($ch, CURLOPT_POSTFIELDS, $post);
+    curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
+    curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 1);
+    $result = curl_exec($ch);
+    curl_close($ch);
+    echo $result . "";
 
-$post = json_encode($data);
-$headers = array('Content-Type: application/json', 'Authorization: Bearer ' . $access_token);
-$ch = curl_init($url);
-curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "POST");
-curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-curl_setopt($ch, CURLOPT_POSTFIELDS, $post);
-curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
-curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 1);
-$result = curl_exec($ch);
-curl_close($ch);
-echo $result . "";
 
 function CRISITE() {
     $GLOBALS ['CMIL'] = array(array("CRI0001",	"เมืองเชียงราย",	"รอบเวียง",	19.9108,	99.8513,	"Active",	"Active",	"Active",	"Active",	"Active",	"Active",),
