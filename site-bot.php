@@ -141,7 +141,7 @@ L900  : '.$L900;
             ];    
         }
         else{
-            $text = 'ไม่พบข้อมูล '.$_msg;
+            $text = 'ไม่พบข้อมูล '.$_msg.' จากผู้ใช้ '.$id1;
             $replyToken = $events['events'][0]['replyToken'];
             $messages = [
                 'type' => 'text',
@@ -157,7 +157,7 @@ L900  : '.$L900;
 }
 
 else    
-{$text = $id1;
+{$text = 'ฮั้นแน่ !';
 $replyToken = $events['events'][0]['replyToken'];
 $messages = [
         'type' => 'text',
