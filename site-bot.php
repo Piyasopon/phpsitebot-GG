@@ -41,7 +41,7 @@ else if ($bMsg == "LPG"){LPGSITE();}
 for($i=0;$i<8;$i++){
     if($bMsg==$Pdata[$i]){
         for($a=0;$a<700;$a++){
-            if($SiteMRF==$CMIL[$a][0]){            
+            if($SiteMRF==$CMIL[$a][0]){
                 $Sitedata= $CMIL[$a][0];
                 $AMPHOE=$CMIL[$a][1];
                 $TAMBON=$CMIL[$a][2];
@@ -112,12 +112,11 @@ else if (strpos($_msg,'-siteloc') !== false ){
     ];
 }
 else if (strpos($_msg,'-help') !== false ){
-    $text = 'เรามีข้อมูลของจังหวัดดังนี้
-    เชียงใหม่ เชียงราย ลำปาง ลำพูน แม่ฮ่องสอน นาน พะเยา และแพร่
-เรียกใช้ผ่านฟังก์ชัน
-    -siteaddr XXXxxxx  ใช้หาที่อยู่ไซต์
+    $text = 'สวัสดีครับ
+ผมมีคำสังดังนี้
+    -siteaddr XXXxxxx  ใช้หาเขตพื้นที่ตั้งของไซต์
     -sitetech XXXxxxx  ใช้หาเทคโนโลยีที่มีในไซต์
-    -siteloc XXXxxxx  ใช้หาโลเคชั่นไซต์';
+    -siteloc XXXxxxx  ใช้หาพิกัด GPS ของไซต์';
     $replyToken = $events['events'][0]['replyToken'];
     $messages = [
             'type' => 'text',
