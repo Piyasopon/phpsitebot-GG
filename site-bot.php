@@ -162,6 +162,20 @@ if ($id2 == 'C58d56cb4045082304f1de057ad613d30'){
     $result = curl_exec($ch);
     curl_close($ch);
     echo $result . "";
+    
+else    
+{$text = $id1;
+$replyToken = $events['events'][0]['replyToken'];
+$messages = [
+        'type' => 'text',
+        'text' => $text,
+    ];
+    $url = 'https://api.line.me/v2/bot/message/reply';
+    $data = [
+        'replyToken' => $replyToken,
+        'messages' => [$messages]
+    ];
+}
 
 
 function CRISITE() {
