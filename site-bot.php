@@ -75,12 +75,12 @@ if ($id2 == 'C58d56cb4045082304f1de057ad613d30' or $id1 == $ALUserID[$o]){
 
         if (strpos($_msg,'-sitetech') !== false ){
             $text = $Sitedata.'
-            G900  : '.$G900.'
-            U850  : '.$U850.'
-            U2100 : '.$U2100.'
-            L2100 : '.$L2100.'
-            L1800 : '.$L1800.'
-            L900  : '.$L900;
+G900  : '.$G900.'
+U850  : '.$U850.'
+U2100 : '.$U2100.'
+L2100 : '.$L2100.'
+L1800 : '.$L1800.'
+L900  : '.$L900;
             $replyToken = $events['events'][0]['replyToken'];
             $messages = [
                 'type' => 'text',
@@ -96,7 +96,7 @@ if ($id2 == 'C58d56cb4045082304f1de057ad613d30' or $id1 == $ALUserID[$o]){
 
         else if (strpos($_msg,'-siteaddr') !== false ){
             $text = $Sitedata.'
-            ต.'.$TAMBON.'  อ.'.$AMPHOE.'  จ.'.$PROVINCE[$i];
+ต.'.$TAMBON.'  อ.'.$AMPHOE.'  จ.'.$PROVINCE[$i];
             $replyToken = $events['events'][0]['replyToken'];
             $messages = [
                 'type' => 'text',
@@ -125,10 +125,10 @@ if ($id2 == 'C58d56cb4045082304f1de057ad613d30' or $id1 == $ALUserID[$o]){
         }
         else if (strpos($_msg,'-help') !== false ){
             $text = 'สวัสดีครับ
-        ผมมีคำสั่งดังนี้
-            -siteaddr XXXxxxx  ใช้หาเขตพื้นที่ตั้งของไซต์
-            -sitetech XXXxxxx  ใช้หาเทคโนโลยีที่มีในไซต์
-            -siteloc XXXxxxx  ใช้หาพิกัด GPS ของไซต์';
+ผมมีคำสั่งดังนี้
+-siteaddr XXXxxxx  ใช้หาเขตพื้นที่ตั้งของไซต์
+-sitetech XXXxxxx  ใช้หาเทคโนโลยีที่มีในไซต์
+-siteloc XXXxxxx  ใช้หาพิกัด GPS ของไซต์';
             $replyToken = $events['events'][0]['replyToken'];
             $messages = [
                     'type' => 'text',
