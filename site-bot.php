@@ -35,7 +35,7 @@ $ALUserID = array('U539d05590b586ea7c8c4b3141c0a642f','Uc40296b6f23838c56dd035af
 
 for ($o = 0;$o <3; $0++){if ($ALUserID[$o] == $id1){$ALUserID[$o]==$GLOBALS['idt'];}}
 
-if ($id2 == 'C58d56cb4045082304f1de057ad613d30' || $id1 == $idt){
+if ($id2 == 'C58d56cb4045082304f1de057ad613d30' or $id1 == $idt){
     if (strpos($_msg,'-') !== false ){
 
         if ($cMsg == "CMI7"){CMI7SITE();}
