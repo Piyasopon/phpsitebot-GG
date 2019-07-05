@@ -6,11 +6,11 @@ $content = file_get_contents('php://input');
 $arrayHeader = array();
    $arrayHeader[] = "Content-Type: application/json";
    $arrayHeader[] = "Authorization: Bearer {$accessToken}";
-    $id1 = $arrayJson['events'][0]['source']['userId'];
-    $id2 = $arrayJson['events'][0]['source']['groupId'];
-    $id3 = $arrayJson['events'][0]['source']['room'];
 // Parse JSON
 $events = json_decode($content, true);
+$id1 = $events['events'][0]['source']['userId'];
+$id2 = $events['events'][0]['source']['groupId'];
+$id3 = $events['events'][0]['source']['room'];
 // Validate parsed JSON data
 $_msg = $events['events'][0]['message']['text'];
 
