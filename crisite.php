@@ -14,14 +14,14 @@
    // Validate parsed JSON data
    $_msg = $events['events'][0]['message']['text'];
    
-
+$replyToken = $events['events'][0]['replyToken'];
    $messages= [
        'type'=> 'text',
        'text'=> 'Hello Quick Reply!'
    ];
  
 
- $replyToken = $events['events'][0]['replyToken'];
+ 
      $url = 'https://api.line.me/v2/bot/message/reply';
      $data = [
          'replyToken' => $replyToken,
