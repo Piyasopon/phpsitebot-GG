@@ -17,10 +17,10 @@
 
    $messages= [
      {
-       "type"= "text",
-       "text"= "Hello Quick Reply!",
-       "quickReply"= {
-         "items"= [
+       "type"=> "text",
+       "text"=> "Hello Quick Reply!",
+       "quickReply"=> {
+         "items"=> [
            {
             "type"=> "action",
              "action"=> {
