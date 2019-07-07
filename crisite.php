@@ -16,8 +16,7 @@ $_msg = $events['events'][0]['message']['text'];
    
 $text = 'ฮั้นแน่ !';
 $replyToken = $events['events'][0]['replyToken'];
-$messages = [
-           "quickReply"= {
+           $quickReply= {
             "items"= [
               {
                "type" => "action",
@@ -25,12 +24,11 @@ $messages = [
                "type" => "cameraRoll",
                "label" => "Camera Roll"
                 }
-              }]}
-       ];
+              }]};
        $url = 'https://api.line.me/v2/bot/message/reply';
        $data = [
            'replyToken' => $replyToken,
-           'messages' => [$messages]
+           'messages' => [$quickReply]
        ];
 
 $post = json_encode($data);
