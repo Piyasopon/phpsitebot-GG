@@ -20,9 +20,9 @@ $messages = [
 
    'type' => 'text',
    'text' => $text.'\uDBC0\uDC84',
-   "type": "sticker",
-   "packageId": "11538",
-   "stickerId": "51626512"
+   "type"=> "sticker",
+   "packageId"=> "11538",
+   "stickerId"=> "51626512"
        ];
        $url = 'https://api.line.me/v2/bot/message/reply';
        $data = [
