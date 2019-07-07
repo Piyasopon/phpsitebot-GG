@@ -1,5 +1,5 @@
 <?php
-{
+
    $access_token = 'QTT5Jps7jzDie8k/PmEXPPWEnwshJjuUgdnzOIxwM1Smbo5LpLLTcH6IH1Yak/kcpBRQ1Mg6zgbhRhJRfeiTrMQu00gKSjje90+BzC1R1XF4hmDOorADW/MQyGAMNkE7/MI/vDAy9juWhix1dMppqgdB04t89/1O/w1cDnyilFU=';
    // Get POST body content
    $content = file_get_contents('php://input');
@@ -16,23 +16,11 @@
    
 
    $messages= [
-     {
        "type"=> "text",
        "text"=> "Hello Quick Reply!",
-       "quickReply"=> {
-         "items"=> [
-           {
-            "type"=> "action",
-             "action"=> {
-               "type"=> "camera",
-               "label"=> "Camera"
-             }
-           }
-         ]
-      }
-     }
+
     ]
- }
+ 
 
  $replyToken = $events['events'][0]['replyToken'];
      $url = 'https://api.line.me/v2/bot/message/reply';
