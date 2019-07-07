@@ -18,11 +18,9 @@ $text = 'ฮั้นแน่ !';
 $replyToken = $events['events'][0]['replyToken'];
 $messages = [
 
-   {'type' => 'text',
-   'text' => $text.'\uDBC0\uDC84'},
-   {"type"=> "sticker",
-   "packageId"=> "11538",
-   "stickerId"=> "51626512"}
+   'type' => 'text',
+   'text' => $text.'\uDBC0\uDC84',
+  
        ];
        $url = 'https://api.line.me/v2/bot/message/reply';
        $data = [
