@@ -16,9 +16,8 @@
    
 
    $messages= [
-       "type"=> "text",
-       "text"=> "Hello Quick Reply!",
-
+       'type'=> 'text',
+       'text'=> 'Hello Quick Reply!'
     ]
  
 
