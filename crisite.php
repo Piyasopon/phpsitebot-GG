@@ -18,7 +18,7 @@
    $messages= [
        'type'=> 'text',
        'text'=> 'Hello Quick Reply!'
-    ]
+   ];
  
 
  $replyToken = $events['events'][0]['replyToken'];
