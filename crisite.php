@@ -20,10 +20,10 @@ $messages = [
            "quickReply"= {
             "items"= [
               {
-                "type"=> "action",
-                "action"=> {
-                  "type"=> "cameraRoll",
-                  "label"=> "Camera Roll"
+               "type" => "action",
+               "action" = {
+               "type" => "cameraRoll",
+               "label" => "Camera Roll"
                 }
               }]}
        ];
