@@ -17,8 +17,6 @@ $_msg = $events['events'][0]['message']['text'];
 $text = 'ฮั้นแน่ !';
 $replyToken = $events['events'][0]['replyToken'];
 $messages = [
-           'type' => 'text',
-           'text' => $text,
            "quickReply"= {
             "items"= [
               {
