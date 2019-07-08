@@ -20,18 +20,18 @@ $messages = [
 
    'type' => 'text',
    'text' => $text,
-   'quickReply' {
+   'quickReply'= {
       'items'= [
         {
           'type'=> 'action',
-          'action' {
+          'action'= {
             'type'=> 'cameraRoll',
             'label'=> 'Send photo'
           }
         },
         {
           'type'=> "action",
-          'action' {
+          'action'= {
             'type'=> 'camera',
             'label'=> 'Open camera'
           }
