@@ -20,6 +20,24 @@ $messages = [
 
    'type' => 'text',
    'text' => $text,
+   'quickReply': {
+      'items'= [
+        {
+          'type'=> 'action',
+          'action': {
+            'type'=> 'cameraRoll',
+            'label'=> 'Send photo'
+          }
+        },
+        {
+          'type'=> "action",
+          'action': {
+            'type'=> 'camera',
+            'label'=> 'Open camera'
+          }
+        }
+      ]
+    }
   
        ];
        $url = 'https://api.line.me/v2/bot/message/reply';
