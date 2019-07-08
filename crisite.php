@@ -18,8 +18,8 @@ $text = 'ฮั้นแน่ !';
 $replyToken = $events['events'][0]['replyToken'];
 $messages = [
 
-   'type' : 'text',
-   'text' : $text,
+   'type' => 'text',
+   'text' => $text,
   
        ];
        $url = 'https://api.line.me/v2/bot/message/reply';
