@@ -1,11 +1,6 @@
-<?php
-  $data = 'xxx'; // ตัวแปร PHP
-
-  echo '<script type="text/javascript">';
-  echo "var data = '$data';"; // ส่งค่า $data จาก PHP ไปยังตัวแปร data ของ Javascript
-  echo '</script>';
-?>
-
-<script type="text/javascript">
-  alert(data); // ทดสอบแสดงตัวแปร
-</script>
+<HTML>
+<HEAD><TITLE> My Homepage </TITLE></HEAD>
+<BODY BGCOLOR=#FFFFFF>
+<H1><?php echo "Hello World"; ?>
+</H1> Your web browser is <?php echo $HTTP_USER_AGENT; ?>. </BODY>
+</HTML>
