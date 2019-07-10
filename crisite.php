@@ -22,8 +22,6 @@ $messages = [
    'text' => $text,
   
        ];
-
-
        
        $url = 'https://api.line.me/v2/bot/message/reply';
        $data = [
