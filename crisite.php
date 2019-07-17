@@ -13,14 +13,17 @@
         
 
         <script>
-        var site =[];
+        var site =[];</script>
 <?php
 $objCSV = fopen("Site Data for TSID2.csv", "r");
-while (($objArr = fgetcsv($objCSV, 1000, ",")) !== FALSE) {?> 
-        site.push(["<?php $objArr[1];?>",<?php $objArr[5];?>,<?php $objArr[6];?>]);
-<?php   
+while (($objArr = fgetcsv($objCSV, 1000, ",")) !== FALSE) { 
+  echo '<script type="text/javascript">';    
+  echo "site.push([ '$objArr[1]',$objArr[5],$objArr[6] ;"; // ส่งค่า $data จาก PHP ไปยังตัวแปร data ของ Javascript
+  echo '</script>';
+  
 }
 fclose($objCSV);?>
+<script type="text/javascript">
         var first = null
         var mapCircle;
         var GGM;
