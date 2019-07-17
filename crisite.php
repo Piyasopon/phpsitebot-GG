@@ -33,7 +33,7 @@ $L1800="Active";
 $L900="Active";
 
 
-    if (strpos($_msg,'-') !== false ){
+if (strpos($_msg,'-') !== false ){
     CMI7SITE();
         for($i=0;$i<8;$i++){
             if($bMsg==$Pdata[$i]){
@@ -138,8 +138,7 @@ L900  : '.$L900;
                 'messages' => [$messages]
             ];
         }
-    }
-
+}
 
     $post = json_encode($data);
     $headers = array('Content-Type: application/json', 'Authorization: Bearer ' . $access_token);
@@ -153,9 +152,6 @@ L900  : '.$L900;
     curl_close($ch);
     echo $result . "";
     
-
-
-
 function CRISITE() {
     $GLOBALS ['CMIL'] = array(array("CRI0001",	"เมืองเชียงราย",	"รอบเวียง",	19.9108,	99.8513,	"Active",	"Active",	"Active",	"Active",	"Active",	"Active",),
     array("CRI0002",	"เมืองเชียงราย",	"ริมกก",	19.92716,	99.8416,	"Active",	"Active",	"Active",	"Active",	"Active",	"Active",),
@@ -855,6 +851,7 @@ echo '<script type="text/javascript">';
   echo "var LONGITUDE = '$LONGITUDE';";
   echo '</script>';
 ?>
+
 <!doctype html>
 <html>
     <head>
@@ -872,13 +869,13 @@ echo '<script type="text/javascript">';
         var first = null
         var mapCircle;
         var GGM;
-        var locations=[Sitedata];
-        var latitude=[LATITUDE];
-        var longitude=[LONGITUDE];
+        var locations=[];
+        var latitude=[];
+        var longitude=[];
         var img = 'pin.png';
         
     for (var v=1;v<site.length;v++){
-        if( ((site[v][3]-latitude[0])*(site[v][3]-latitude[0]))+((site[v][4]-longitude[0])*(site[v][4]-longitude[0])) < 0.0091*0.0091){
+        if( ((site[v][3]-site[0][3])*(site[v][3]-site[0][3]))+((site[v][4]-site[0][4])*(site[v][4]-site[0][4])) < 0.0091*0.0091){
             locations.push(site[v][0]);
             latitude.push(site[v][3]);
             longitude.push(site[v][4]);
