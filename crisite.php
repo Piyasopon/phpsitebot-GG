@@ -32,8 +32,8 @@ fclose($objCSV);?>
     for (var v=0;v<site.length;v++){
         if( ((site[v][1]-site[0][1])*(site[v][1]-site[0][1]))+((site[v][2]-site[0][2])*(site[v][2]-site[0][2])) < 0.0091*0.0091){
             locations.push(site[v][0]);
-            latitude.push(site[v][3]);
-            longitude.push(site[v][4]);
+            latitude.push(site[v][1]);
+            longitude.push(site[v][2]);
             
         }  
     }
