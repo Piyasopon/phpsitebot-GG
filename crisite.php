@@ -16,7 +16,7 @@
 <?php
 $objCSV = fopen("Site Data for TSID2.csv", "r");
 while (($objArr = fgetcsv($objCSV, 1000, ",")) !== FALSE) { ?>    
-  <script>site.push(<?php$objArr[1]?>,<?php$objArr[5]?>,<?php$objArr[6]?>);</script>
+  <script>site.push([<?php$objArr[1]?>,<?php$objArr[5]?>,<?php$objArr[6]?>]);</script>
 <?php  
 }
 fclose($objCSV);?>
