@@ -14,6 +14,9 @@ for ($v=0;$v<sizeof($str)/3;$v++){
       array_push($longitude,$strexplode[$v*3+2]);  
   }  
 }
+echo $locations[0];
+echo $latitude[0];
+echo $longitude[0];
 ?>
 
 <!doctype html>
@@ -33,9 +36,9 @@ for ($v=0;$v<sizeof($str)/3;$v++){
         var first = null
         var mapCircle;
         var GGM;
-        var locations= new Array(<?php echo implode(", ", $locations);?>);
-        var latitude=new Array(<?php echo implode(", ", $latitude);?>);
-        var longitude=new Array(<?php echo implode(", ", $longitude);?>);
+        var locations = new Array(<?php echo implode(", ", $locations);?>);
+        var latitude = new Array(<?php echo implode(", ", $latitude);?>);
+        var longitude = new Array(<?php echo implode(", ", $longitude);?>);
         var img = 'pin.png';
         document.write(locations[0]);
         document.write(latitude[0]);
