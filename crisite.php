@@ -18,7 +18,7 @@
 $objCSV = fopen("Site Data for TSID2.csv", "r");
 while (($objArr = fgetcsv($objCSV, 1000, ",")) !== FALSE) { 
   echo '<script type="text/javascript">';    
-  echo "site.push([ '$objArr[1]',$objArr[5],$objArr[6] ;"; // ส่งค่า $data จาก PHP ไปยังตัวแปร data ของ Javascript
+  echo "site.push([ '$objArr[1]',$objArr[5],$objArr[6] )];"; // ส่งค่า $data จาก PHP ไปยังตัวแปร data ของ Javascript
   echo '</script>';
   
 }
