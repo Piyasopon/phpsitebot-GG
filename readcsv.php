@@ -1,23 +1,6 @@
 <?php
 include ('crisite.php');
+$myfile = fopen("SiteDataforTSID2.csv", "r") or die("Unable to open file!");
+echo fread($myfile,filesize("SiteDataforTSID2.csv"));
 echo "OK readcsv";
 ?>
-
-"quickReply": {
-      "items": [
-        {
-          "type": "action",
-          "action": {
-            "type": "cameraRoll",
-            "label": "Send photo"
-          }
-        },
-        {
-          "type": "action",
-          "action": {
-            "type": "camera",
-            "label": "Open camera"
-          }
-        }
-      ]
-    }
