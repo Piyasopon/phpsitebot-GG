@@ -12,15 +12,12 @@
         <div id='main' style='width:98vw; height:96vh; '></div>
         
 
-        <script>
-        var site =[];</script>
+        <script>var site =[];</script>
 <?php
 $objCSV = fopen("Site Data for TSID2.csv", "r");
-while (($objArr = fgetcsv($objCSV, 1000, ",")) !== FALSE) { 
-  echo '<script type="text/javascript">';    
-  echo "site.push([ '$objArr[1]',$objArr[5],$objArr[6] )];"; // ส่งค่า $data จาก PHP ไปยังตัวแปร data ของ Javascript
-  echo '</script>';
-  
+while (($objArr = fgetcsv($objCSV, 1000, ",")) !== FALSE) { ?>    
+  <script>site.push(<?php$objArr[1]?>,<?php$objArr[5]?>,<?php$objArr[6]?>]);</script>
+<?php  
 }
 fclose($objCSV);?>
 <script type="text/javascript">
