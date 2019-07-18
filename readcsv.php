@@ -11,6 +11,7 @@ $txt = "John Doe\n";
 fwrite($myfile, $txt);
 $txt = "Jane Doe\n";
 fwrite($myfile, $txt);
+fread($myfile,filesize("newfile.txt"));
 fclose($myfile);
 ?>
 
