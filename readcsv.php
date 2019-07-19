@@ -14,8 +14,8 @@ $_msg = $arrJson['events'][0]['message']['text'];
  
  
 $api_key="<MLAB APIKEY>";
-$url = 'https://api.mlab.com/api/1/databases/duckduck/collections/linebot?apiKey='.'cdc8bb97-603b-45a0-a439-e5afabeaed2c'.'';
-$json = file_get_contents('https://api.mlab.com/api/1/databases/duckduck/collections/linebot?apiKey='.'cdc8bb97-603b-45a0-a439-e5afabeaed2c'.'&q={"question":"'.$_msg.'"}');
+$url = 'https://api.mlab.com/api/1/databases/duckduck/collections/linebot?apiKey=cdc8bb97-603b-45a0-a439-e5afabeaed2c';
+$json = file_get_contents('https://api.mlab.com/api/1/databases/duckduck/collections/linebot?apiKey=cdc8bb97-603b-45a0-a439-e5afabeaed2c&q={"question":"'.$_msg.'"}');
 $data = json_decode($json);
 $isData=sizeof($data);
  
