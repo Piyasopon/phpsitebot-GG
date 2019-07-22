@@ -1,11 +1,22 @@
 <?php
-$connect = new Mongo('mongodb://admin:admin@@cluster-civtu.gcp.mongodb.net/test?retryWrites=true&w=majority');
-$db = $connect->selectDB( "duckduck" );
-$collection = $db->selectCollection( "linebot" );
-$insert = array( "name" => "PHP","type" => "Computer Language");
-$collection->insert( $insert,true);//เพิ่มข้อมูล
-$showcate = $collection->find();//แสดงข้อมูลทั้งหมด
-foreach ($showcate as $id => $value) {
-    echo "$id: ".$value['name'].' '.$value['type'];
-}
+   // connect to mongodb
+   $m = new MongoClient('mongodb://admin:admin@@cluster-civtu.gcp.mongodb.net/test?retryWrites=true&w=majority');
+   echo "Connection to database successfully";
+	
+   // select a database
+   $db = $m->duckduck;
+   echo "Database mydb selected";
+   $collection = $db->linebot;
+   echo "Collection selected succsessfully";
+	
+   $document = array( 
+      "title" => "MongoDB", 
+      "description" => "database", 
+      "likes" => 100,
+      "url" => "http://www.tutorialspoint.com/mongodb/",
+      "by" => "tutorials point"
+   );
+	
+   $collection->insert($document);
+   echo "Document inserted successfully";
 ?>
