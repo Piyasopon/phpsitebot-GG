@@ -7,9 +7,6 @@
             </script>
         <script src="https://d.line-scdn.net/liff/1.0/sdk.js"></script>
         <script src="liff-starter.js"></script>
-        <meta name="viewport" content="initial-scale=1.0">
-        <script src="http://code.jquery.com/jquery-latest.min.js"></script>
-        <meta charset="utf-8">
     </head>
     <body onload ='start()'>
         <div id='main' style='width:98vw; height:96vh; '></div>
@@ -29,17 +26,15 @@
         var latitude=[];
         var longitude=[];
         var img = 'pin.png';
-
-$.getJSON( "json.php", function( jsonObj ) {
-    $.each(jsonObj, function(i, item){
-        if( ((item.COL 2 -site[0][3])*(item.COL 2 -site[0][3]))+((item.COL 3 -site[0][4])*(item.COL 3 -site[0][4])) < 0.0091*0.0091){
-            locations.push(item.COL 1);
-            latitude.push(item.COL 2);
-            longitude.push(item.COL 3);
+        
+for (var v=0;v<site.length;v++){
+        if( ((site[v][3]-site[0][3])*(site[v][3]-site[0][3]))+((site[v][4]-site[0][4])*(site[v][4]-site[0][4])) < 0.0091*0.0091){
+            locations.push(site[v][0]);
+            latitude.push(site[v][3]);
+            longitude.push(site[v][4]);
             
-        }
-    });
-});
+        }  
+    }
 function start() {
     var main = document.getElementById('main')
     var data = { zoom: 15, center: {lat:latitude[0],lng:longitude[0]}}
@@ -85,7 +80,3 @@ function start() {
 async defer></script>
     </body>
 </html>
-
-
-
-
