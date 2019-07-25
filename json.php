@@ -1,6 +1,6 @@
 <?php
 $host ="localhost";
-$dbusername ="daboostu_tsid";
+$dbusername ="daboostu_tsid2";
 $dbpassword ="tsidtsid2";
 $dbname ="daboostu_tsid2";
 $con = new mysqli($host,$dbusername,$dbpassword,$dbname);
