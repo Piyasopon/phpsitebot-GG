@@ -19,12 +19,12 @@
         var first = null
         var mapCircle;
         var GGM;
-        var locations=[];
-        var latitude=[];
-        var longitude=[];
+        var locations=[site[0][0]];
+        var latitude=[site[0][3]];
+        var longitude=[site[0][4]];
         var img = 'pin.png';
 
-$.getJSON( "json.php", function( jsonObj ) {
+$.getJSON( 'json.php', function( jsonObj ) {
     $.each(jsonObj, function(i, item){
         if( ((item.lat -site[0][3])*(item.lat -site[0][3]))+((item.lon -site[0][4])*(item.lon -site[0][4])) < 0.0091*0.0091){
             locations.push(item.site);
