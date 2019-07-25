@@ -9,11 +9,6 @@ header('Content-Type: application/json');
 mysql_query("SET NAMES UTF8");
 $strSQL = "SELECT * FROM TABLE 7";
 $objQuery = mysql_query($con,$strSQL);
-$resultArray = array();
-while($obResult = mysql_fetch_array($objQuery))
-{
-array_push($resultArray,$obResult);
-}
-mysql_close($objConnect);
-echo json_encode($resultArray);
+$result = mysqli_fetch_assoc($objQuery);
+echo $result['site'];
 ?>
