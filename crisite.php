@@ -13,7 +13,8 @@ $id2 = $events['events'][0]['source']['groupId'];
 $id3 = $events['events'][0]['source']['room'];
 // Validate parsed JSON data
 $_msg = $events['events'][0]['message']['text'];
-
+$_Mlat = $events['events'][0]['message']['latitude'];
+$_Mlon = $events['events'][0]['message']['longitude'];
 $SiteMsg = substr($_msg,-7);
 $SiteMRF = strtoupper($SiteMsg);
 $bMsg = substr($SiteMRF,0,3);
