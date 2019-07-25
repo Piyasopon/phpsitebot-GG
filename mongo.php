@@ -29,15 +29,17 @@
         var latitude=[];
         var longitude=[];
         var img = 'pin.png';
-        
-for (var v=0;v<site.length;v++){
-        if( ((site[v][3]-site[0][3])*(site[v][3]-site[0][3]))+((site[v][4]-site[0][4])*(site[v][4]-site[0][4])) < 0.0091*0.0091){
-            locations.push(site[v][0]);
-            latitude.push(site[v][3]);
-            longitude.push(site[v][4]);
+
+$.getJSON( "json.php", function( jsonObj ) {
+    $.each(jsonObj, function(i, item){
+        if( ((item.COL 2 -site[0][3])*(item.COL 2 -site[0][3]))+((item.COL 3 -site[0][4])*(item.COL 3 -site[0][4])) < 0.0091*0.0091){
+            locations.push(item.COL 1);
+            latitude.push(item.COL 2);
+            longitude.push(item.COL 3);
             
-        }  
-    }
+        }
+    });
+});
 function start() {
     var main = document.getElementById('main')
     var data = { zoom: 15, center: {lat:latitude[0],lng:longitude[0]}}
