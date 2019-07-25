@@ -1,8 +1,88 @@
-<?php
-$connect=new Mongo('mongodb+srv:http//admin:admin@cluster-civtu.gcp.mongodb.net/test?retryWrites=true&w=majority');//Default http://localhost:27017
-$db = $connect->selectDB( "duckduck" );
-$collection = $db->selectCollection( "linebot" );
-?>
+<!doctype html>
+<html>
+    <head>
+        <title>Map</title>
+        <script async defer
+            src="https://maps.googleapis.com/maps/api/js">
+            </script>
+        <script src="https://d.line-scdn.net/liff/1.0/sdk.js"></script>
+        <script src="liff-starter.js"></script>
+        <meta name="viewport" content="initial-scale=1.0">
+        <script src="http://code.jquery.com/jquery-latest.min.js"></script>
+        <meta charset="utf-8">
+    </head>
+    <body onload ='start()'>
+        <div id='main' style='width:98vw; height:96vh; '></div>
+        
+        <script>
+            var site = [
+                ["CMI0034",	"เมืองเชียงใหม่",	"สุเทพ",	18.78762,	98.97255,	"Active",	"Active",	"Active",	"Active",	"Active",	"Active",],
+                ["CMI0027",	"เมืองเชียงใหม่",	"หายยา",	18.78013,	98.98756,	"Active",	"Active",	"Active",	"Active",	"Active",	"Active",],
+                ["CMI0033",	"เมืองเชียงใหม่",	"ช้างเผือก",	18.81422,	98.9825,	"Active",	"Active",	"Active",	"Active",	"Active",	"Active",],
+                ["CMI0036",	"เมืองเชียงใหม่",	"สุเทพ",	18.79547,	98.97758,	"Active",	"Active",	"Active",	"Active",	"Active",	"Active",],
+                ["CMI0039",	"เมืองเชียงใหม่",	"ศรีภูมิ",	18.7894,	98.9877,	"Active",	"Active",	"Active",	"Active",	"Active",	"Active",],
+            ];
+        var first = null
+        var mapCircle;
+        var GGM;
+        var locations=[];
+        var latitude=[];
+        var longitude=[];
+        var img = 'pin.png';
+        
+for (var v=0;v<site.length;v++){
+        if( ((site[v][3]-site[0][3])*(site[v][3]-site[0][3]))+((site[v][4]-site[0][4])*(site[v][4]-site[0][4])) < 0.0091*0.0091){
+            locations.push(site[v][0]);
+            latitude.push(site[v][3]);
+            longitude.push(site[v][4]);
+            
+        }  
+    }
+function start() {
+    var main = document.getElementById('main')
+    var data = { zoom: 15, center: {lat:latitude[0],lng:longitude[0]}}
+    GGM=new Object(google.maps);
+    first = new google.maps.Map(main, data)
+
+    var marker, i, info;
+    /* พอร์ตจุดลงแมพด้วยค่าที่ได้จาก array */
+    for (i = 0; i < locations.length; i++) {
+        if (i==0){ 
+            marker = new google.maps.Marker({
+            position: new google.maps.LatLng(latitude[i], longitude[i]),
+            map: first,
+            title: locations[i] });}  
+        else {
+            marker = new google.maps.Marker({
+            position: new google.maps.LatLng(latitude[i], longitude[i]),
+            map: first,
+            icon: img,
+            title: locations[i]
+            });}
+    info = new google.maps.InfoWindow();
+    google.maps.event.addListener(marker, 'click', (function(marker, i) {
+    return function() {
+    info.setContent(locations[i]);
+    info.open(first, marker);
+    }
+    })(marker, i));
+    }
+    mapCircle = new GGM.Circle({ // สร้างตัว circle
+      strokeColor: "#0000e6", // สีของเส้นสัมผัส หรือสีขอบโดยรอบ
+      strokeOpacity: 0.5, // ความโปร่งใส ของสีขอบโดยรอบ กำหนดจาก 0.0  -  0.1
+      strokeWeight: 1, // ความหนาของสีขอบโดยรอบ เป็นหน่วย pixel
+      fillColor: "#00eeff", // สีของวงกลม circle
+      fillOpacity: 0.2, // ความโปร่งใส กำหนดจาก 0.0  -  0.1
+      map: first, // กำหนดว่า circle นี้ใช้กับแผนที่ชื่อ instance ว่า first
+      center: {lat:latitude[0],lng:longitude[0]}, // ตำแหน่งศูนย์กลางของวลกลม ในที่นี้ใช้ตำแหน่งเดียวกับ ศูนย์กลางแผนที่
+      radius: 1000 // รัศมีวงกลม circle ทีสร้าง หน่ายเป็น เมตร
+    }); 
+    }
+</script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCLqB76VXoO_24VlTEVTATn2qlEeKBR75k&callback=initMap"
+async defer></script>
+    </body>
+</html>
 
 
 
