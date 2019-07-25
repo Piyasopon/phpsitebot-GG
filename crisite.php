@@ -31,7 +31,8 @@ $U2100="Active";
 $L2100="Active";
 $L1800="Active";
 $L900="Active";
-$messages2 = "line://app/1591567831-GEkQJqax";
+$messages2 = ['type' => 'text',
+'text' => "line://app/1591567831-GEkQJqax"];
 $ALUserID = array('U539d05590b586ea7c8c4b3141c0a642f','Uc40296b6f23838c56dd035afb140df2f');
 
 for ($o = 0;$o <2; $o++){if ($ALUserID[$o] == $id1){break;}}
