@@ -22,7 +22,7 @@
         var img = 'pin.png';
 
 $.ajax({
-    url: "site.json",
+    url: "https://calm-fortress-78191.herokuapp.com/site.json",
     dataType: "jsonp",
     jsonp: "callback",
     jsonpCallback:"JSON_CALLBACK"   
