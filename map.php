@@ -2,9 +2,6 @@
 <html>
     <head>
         <title>Map</title>
-        <script async defer
-            src="https://maps.googleapis.com/maps/api/js">
-            </script>
         <script src="https://d.line-scdn.net/liff/1.0/sdk.js"></script>
         <script src="liff-starter.js"></script>
         <script src="http://code.jquery.com/jquery-latest.min.js"></script>
@@ -24,16 +21,21 @@
         var longitude=[site[0][4]];
         var img = 'pin.png';
 
-$.getJSON( 'json.php', function( jsonObj ) {
-    $.each(jsonObj, function(i, item){
-        if( ((item.lat -site[0][3])*(item.lat -site[0][3]))+((item.lon -site[0][4])*(item.lon -site[0][4])) < 0.0091*0.0091){
-            locations.push(item.site);
-            latitude.push(item.lat);
-            longitude.push(item.lon);
-            
-        }
+$.ajax({
+    url: "site.json",
+    dataType: "jsonp",
+    jsonp: "callback",
+    jsonpCallback:"JSON_CALLBACK"   
+    }).done(function (data){
+        $.each(jsonObj, function(i, item){
+            if( ((item.lat -site[0][3])*(item.lat -site[0][3]))+((item.lon -site[0][4])*(item.lon -site[0][4])) < 0.0091*0.0091){
+                locations.push(item.site);
+                latitude.push(item.lat);
+                longitude.push(item.lon);
+                
+            }
+        });
     });
-});
 function start() {
     var main = document.getElementById('main')
     var data = { zoom: 15, center: {lat:latitude[0],lng:longitude[0]}}
