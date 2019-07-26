@@ -21,8 +21,8 @@
         var longitude=[site[0][4]];
         var img = 'pin.png';
         var j = 1;
-$.ajax({
-    url: "https://calm-fortress-78191.herokuapp.com/site.json",
+    $.ajax({
+    url: "site.json",
     dataType: "jsonp",
     jsonp: "callback",
     jsonpCallback:"JSON_CALLBACK"   
