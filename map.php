@@ -20,7 +20,7 @@
         var latitude=[site[0][3]];
         var longitude=[site[0][4]];
         var img = 'pin.png';
-
+        var j = 1;
 $.ajax({
     url: "https://calm-fortress-78191.herokuapp.com/site.json",
     dataType: "jsonp",
@@ -29,10 +29,10 @@ $.ajax({
     }).done(function (data){
         $.each(jsonObj, function(i, item){
             if( ((item.lat -site[0][3])*(item.lat -site[0][3]))+((item.lon -site[0][4])*(item.lon -site[0][4])) < 0.0091*0.0091){
-                locations.push(item.site);
-                latitude.push(item.lat);
-                longitude.push(item.lon);
-                
+                locations[j] = item.site;
+                latitude[j] = item.lat;
+                longitude[j] = item.lon;
+                j++;
             }
         });
     });
