@@ -4,7 +4,7 @@ $client = new MongoDBClient(
 $db = $client->selectDB( "duckduck" );
 $collection = $db->selectCollection( "linebot" );
  
-$strAccessToken = "<Channel Access Token Line>";
+$strAccessToken = "pyy3ejY2dZqlv1IzEQWlaVYa8/avCiMSl18URYL/aUTbPElz68myv31ssA/xVbePpBRQ1Mg6zgbhRhJRfeiTrMQu00gKSjje90+BzC1R1XEG5MVGZZmn7r0TyGySNLywhb9oOW6tbpCMVMdwfiu58QdB04t89/1O/w1cDnyilFU=";
 $content = file_get_contents('php://input');
 $arrJson = json_decode($content, true);
 $strUrl = "https://api.line.me/v2/bot/message/reply";
