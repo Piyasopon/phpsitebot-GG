@@ -18,8 +18,7 @@ $url = 'https://api.mlab.com/api/1/databases/duckduck/collections/linebot?apiKey
 $json = file_get_contents('https://api.mlab.com/api/1/databases/duckduck/collections/linebot?apiKey='.$api_key.'&q={"question":"'.$_msg.'"}');
 $data = json_decode($json);
 $isData=sizeof($data);
-$regex=array('question' => new MongoRegex("/สวัสดี/i"));
-$showCate = $collection->find($regex);
+$showCate = $collection->find();
 echo $showCate;
  
 if (strpos($_msg, 'สอนเป็ด') !== false) {
