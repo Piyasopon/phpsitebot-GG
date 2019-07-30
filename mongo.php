@@ -12,8 +12,8 @@
 .topnav {
   overflow: hidden;
   background-color: rgba(2, 2, 2, 0.7);
-  padding:20%;
-  margin:40px 10px 0px 10px ;
+  padding:1%;
+  margin:20% 10px 0px 10px ;
   border-radius: 10px;
 }
 </style>
