@@ -48,6 +48,8 @@ if (strpos($_msg, 'สอนเป็ด') !== false) {
   }
 }else{
   if($isData >0){
+    $regex=array('question' => new MongoRegex("/$_msg/i"));
+    $showCate = $collection->find($regex);
    foreach($data as $rec){
     $arrPostData = array();
     $arrPostData['replyToken'] = $arrJson['events'][0]['replyToken'];
