@@ -19,7 +19,7 @@ $json = file_get_contents('https://api.mlab.com/api/1/databases/duckduck/collect
 $data = json_decode($json);
 $isData=sizeof($data);
 $showCate = $collection->find();
-echo $showCate;
+
  
 if (strpos($_msg, 'สอนเป็ด') !== false) {
   if (strpos($_msg, 'สอนเป็ด') !== false) {
