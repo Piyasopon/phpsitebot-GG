@@ -1,9 +1,5 @@
 <?php
-$client = new MongoDBClient(
-    'mongodb://admin:admin@cluster-shard-00-00-civtu.gcp.mongodb.net:27017,cluster-shard-00-01-civtu.gcp.mongodb.net:27017,cluster-shard-00-02-civtu.gcp.mongodb.net:27017/test?ssl=true&replicaSet=Cluster-shard-0&authSource=admin&retryWrites=true&w=majority');
-$db = $client->selectDB( "duckduck" );
-$collection = $db->selectCollection( "linebot" );
- 
+
 $strAccessToken = "pyy3ejY2dZqlv1IzEQWlaVYa8/avCiMSl18URYL/aUTbPElz68myv31ssA/xVbePpBRQ1Mg6zgbhRhJRfeiTrMQu00gKSjje90+BzC1R1XEG5MVGZZmn7r0TyGySNLywhb9oOW6tbpCMVMdwfiu58QdB04t89/1O/w1cDnyilFU=";
 $content = file_get_contents('php://input');
 $arrJson = json_decode($content, true);
