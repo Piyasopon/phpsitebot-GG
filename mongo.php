@@ -9,6 +9,7 @@ body{
 .input{
     height:100px;
     font-size:60px;
+    border-radius: 5px;
 }
 </style>
 <center><form action="action_page.php" method="post" style="font-size:80px">
