@@ -18,7 +18,7 @@ $url = 'https://api.mlab.com/api/1/databases/duckduck/collections/linebot?apiKey
 $json = file_get_contents('https://api.mlab.com/api/1/databases/duckduck/collections/linebot?apiKey='.$api_key.'&q={"question":"'.$_msg.'"}');
 $data = json_decode($json);
 $isData=sizeof($data);
-$showCate = $collection->find();
+
 
  
 if (strpos($_msg, 'สอนเป็ด') !== false) {
