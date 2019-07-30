@@ -17,7 +17,7 @@
         <meta charset="utf-8">
     </head>
     <body onload ='start()'>
-        <div id='main' style='width:98%; height:96%; '></div>
+        <div id='main' style='width:100%; height:100%; '></div>
         
         <script type="text/javascript">
 var site = [
