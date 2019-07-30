@@ -2,6 +2,10 @@
 <html>
 <body>
 <style>
+body{
+    background-image:url('bg.jpg');
+    background-attachment: fixed;
+}
 .input{
     height:100px;
     font-size:60px;
