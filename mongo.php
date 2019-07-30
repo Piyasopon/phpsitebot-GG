@@ -18,6 +18,9 @@ $url = 'https://api.mlab.com/api/1/databases/duckduck/collections/linebot?apiKey
 $json = file_get_contents('https://api.mlab.com/api/1/databases/duckduck/collections/linebot?apiKey='.$api_key.'&q={"question":"'.$_msg.'"}');
 $data = json_decode($json);
 $isData=sizeof($data);
+$regex=array('question' => new MongoRegex("/$_msg/i"));
+$showCate = $collection->find($regex);
+echo $showCate;
  
 if (strpos($_msg, 'สอนเป็ด') !== false) {
   if (strpos($_msg, 'สอนเป็ด') !== false) {
@@ -48,8 +51,6 @@ if (strpos($_msg, 'สอนเป็ด') !== false) {
   }
 }else{
   if($isData >0){
-    $regex=array('question' => new MongoRegex("/$_msg/i"));
-    $showCate = $collection->find($regex);
    foreach($data as $rec){
     $arrPostData = array();
     $arrPostData['replyToken'] = $arrJson['events'][0]['replyToken'];
