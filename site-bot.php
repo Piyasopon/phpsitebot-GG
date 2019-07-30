@@ -131,7 +131,7 @@ L900  : '.$L900;
 -siteaddr XXXxxxx  ใช้หาเขตพื้นที่ตั้งของไซต์
 -sitetech XXXxxxx  ใช้หาเทคโนโลยีที่มีในไซต์
 -siteloc XXXxxxx  ใช้หาพิกัด GPS ของไซต์
-link ด้านล่างใช่หาไซต์รอบๆ ไซต์ที่ต้องการ';
+link ด้านล่างใช้หาไซต์รอบๆ ไซต์ที่ต้องการ';
             $replyToken = $events['events'][0]['replyToken'];
             $messages = [
                     'type' => 'text',
