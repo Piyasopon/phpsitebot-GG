@@ -3,9 +3,6 @@
 
 <script type="text/javascript" src="test.js.php?data=<?php echo $data?>"></script>
 
-<script type="text/javascript">
-  alert(data); // ทดสอบแสดงตัวแปร
-</script>
 <!doctype html>
 <html>
     <head>
@@ -17,7 +14,7 @@
         <meta charset="utf-8">
     </head>
     <body onload ='start()'>
-        <div id='main' style='width:100%; height:100%; '></div>
+        <div id='main' style='width:300%; height:300%; '></div>
         
         <script type="text/javascript">
 var site = [
