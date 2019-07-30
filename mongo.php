@@ -3,8 +3,8 @@
 <body>
 <style>
 .input{
-    height:80px;
-    font-size:80px;
+    height:100px;
+    font-size:60px;
 }
 </style>
 <center><form action="action_page.php" method="post" style="font-size:80px">
