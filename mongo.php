@@ -17,7 +17,7 @@ body{
 }
 .topnav {
     overflow: hidden;
-    background-color: rgba(2, 2, 2, 0.7);
+    background-image: url("christmas-snow-transparent-background_1390-1144.jpg");
     padding:10px;
     height:200px;
     width:300px;
@@ -32,6 +32,7 @@ body{
         border-radius: 5px;
     }
     [class*="topnav"] {
+        margin-top:20%;
         overflow: hidden;
         background-color: rgba(2, 2, 2, 0.7);
         padding:10px;
