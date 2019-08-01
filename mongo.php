@@ -1,5 +1,12 @@
 
 <html>
+    <head>
+        <title>Site Location</title>
+        <script src="https://d.line-scdn.net/liff/1.0/sdk.js"></script>
+        <script src="liff-starter.js"></script>
+        <script src="http://code.jquery.com/jquery-latest.min.js"></script>
+        <meta charset="utf-8">
+    </head>
 <body>
 <style>
 body{
