@@ -7,7 +7,7 @@ body{
 }
 .font{
     font-size:40px;
-    color:#cccccc;
+    color:#222222;
 }
 .input{
     height:40px;
