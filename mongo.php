@@ -24,7 +24,7 @@ body{
 }
 .topnav {
     overflow: hidden;
-    background-image: url("74035910-rock-textured-background-in-a-black-and-white-light-and-low-contrast-tonality.jpg");
+    background-color:rgb(253, 187, 133);
     padding:10px;
     height:200px;
     width:300px;
@@ -53,7 +53,7 @@ body{
   }
 </style>
 <center><div class="topnav">
-<form action="action_page.php" method="post" class="font">
+<form action="action_page.php" method="post" class="font" >
 Search Site<br><input type="text" name="site" value="CMI0033" class="input"><br><br>
 <input type="submit" class="input" value="Search">
 </form></div></center>
