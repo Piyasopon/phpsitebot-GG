@@ -6,14 +6,14 @@
 .input{
     height:100px;
     font-size:60px;
-    font-family:"Times New Roman", Times, serif;
     border-radius: 5px;
 }
 .topnav {
   overflow: hidden;
   background-color: rgba(2, 2, 2, 0.7);
   padding:1%;
-  margin:20% 10px 0px 10px ;
+  height:300px;
+  width:500px;
   border-radius: 10px;
 }
 </style>
