@@ -1,5 +1,6 @@
-
- <?php  $data = $_POST['site'];?>
+<?php
+$data = strtoupper($_POST['site']);
+?>
 
 <script type="text/javascript" src="test.js.php?data=<?php echo $data?>"></script>
 
