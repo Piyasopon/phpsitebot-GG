@@ -17,7 +17,7 @@ body{
 }
 .topnav {
     overflow: hidden;
-    background-image: url("christmas-snow-transparent-background_1390-1144.jpg");
+    background-image: url("74035910-rock-textured-background-in-a-black-and-white-light-and-low-contrast-tonality.jpg");
     padding:10px;
     height:200px;
     width:300px;
