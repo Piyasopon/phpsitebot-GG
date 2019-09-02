@@ -3620,7 +3620,7 @@ function start() {
     }
 </script>
 <script 
- src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCLqB76VXoO_24VlTEVTATn2qlEeKBR75k&callback=initMap"
+ src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCLqB76VXoO_24VlTEVTATn2qlEeKBR75k&language=th&callback=initMap"
 async defer></script>
     </body>
 </html>
