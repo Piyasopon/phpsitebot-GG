@@ -45,7 +45,7 @@
     //  callback ให้เรียกใช้ฟังก์ชันแสดง แผนที่ initialize  
     $("<script/>", {
       "type": "text/javascript",
-      src: "https://maps.googleapis.com/maps/api/js?key=AIzaSyCLqB76VXoO_24VlTEVTATn2qlEeKBR75k&language=th&libraries=places&callback=initMap"
+      src: "https://maps.googleapis.com/maps/api/js?key=AIzaSyCLqB76VXoO_24VlTEVTATn2qlEeKBR75k&language=th&libraries=places&callback=initialize"
     }).appendTo("body");    
 });
       </script>
