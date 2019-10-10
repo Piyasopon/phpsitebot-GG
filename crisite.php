@@ -16,7 +16,7 @@ $_msg = $events['events'][0]['message']['text'];
 
 
 
-    $text = file_get_contents('http://www.tsid2.daboostudio.com/OSP/test.php');
+    $text =" ";
     $replyToken = $events['events'][0]['replyToken'];
     $messages = [
         'type' => 'text',
