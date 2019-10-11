@@ -26,7 +26,7 @@ $_type = $events['events'][0]['message']['type'];
             return $ret_char; 
        }
        date_default_timezone_set('Asia/Bangkok');
-       $time = date("Y-m-d h:i:se");
+       $time = date("Y-m-dh:i:se");
        $secret_key = 'noitacolstrada0560';//เปลี่ยน
        $secret_iv = random_char(20);//เปลี่ยน
        $encrypt_method = "AES-256-CBC";
