@@ -7,6 +7,7 @@ $arrayHeader = array();
    $arrayHeader[] = "Content-Type: application/json";
    $arrayHeader[] = "Authorization: Bearer {$accessToken}";
 // Parse JSON
+
 $events = json_decode($content, true);
 $id1 = $events['events'][0]['source']['userId'];
 $id2 = $events['events'][0]['source']['groupId'];
