@@ -6,7 +6,7 @@
   $map = json_decode(json_encode([file_get_contents('http://www.tsid2.daboostudio.com/sitebot/map_information.php')]));
 
   $detail = [];
-  $site = explode('},{',$map);
+  $site = explode('},{',$map[0]);
     for( $i = 0 ; $i < count($site) ; $i++ ){
       array_push($detail,explode( '","' , $site[$i] ));
     }
