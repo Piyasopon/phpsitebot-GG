@@ -41,6 +41,7 @@ $bMsg = substr($SiteMRF,0,3);
 $cMsg = substr($SiteMRF,0,4);
 $Pdata = array("CMI","CRI","LPG","LPN","MHS","NAN","PHE","PYO");
 $Sitedata= "XXXxxxx";
+$PROVINCE= "xxxxxxxxxxxx";
 $AMPHOE="xxxxxxxxxxxx";
 $TAMBON="xxxxxxxxx";
 $LATITUDE=90;
