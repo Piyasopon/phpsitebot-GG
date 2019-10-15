@@ -88,7 +88,7 @@ if ($id2 == 'C58d56cb4045082304f1de057ad613d30' or $id1 == $ALUserID[$o]){
             }
          
                  for( $a=0 ; $a < count($_Arraysite) ; $a++ ){
-                     if($SiteMRF==$_Arraysite[$a][3]){
+                     if(strpos( $SiteMRF, $_Arraysite[$a][3] ) > 0){
                          $Sitedata= $_Arraysite[$a][4];
                          $AMPHOE=$_Arraysite[$a][5];
                          $TAMBON=$_Arraysite[$a][6];
