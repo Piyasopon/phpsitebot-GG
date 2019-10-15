@@ -40,7 +40,6 @@ $SiteMRF = strtoupper($SiteMsg);
 $bMsg = substr($SiteMRF,0,3);
 $cMsg = substr($SiteMRF,0,4);
 $Pdata = array("CMI","CRI","LPG","LPN","MHS","NAN","PHE","PYO");
-$PROVINCE = array("เชียงใหม่", "เชียงราย", "ลำปาง", "ลำพูน", "แม่ฮ่องสอน", "นาน", "แพร่", "พะเยา");
 $Sitedata= "XXXxxxx";
 $AMPHOE="xxxxxxxxxxxx";
 $TAMBON="xxxxxxxxx";
@@ -89,7 +88,8 @@ if ($id2 == 'C58d56cb4045082304f1de057ad613d30' or $id1 == $ALUserID[$o]){
          
                  for( $a=0 ; $a < count($_Arraysite) ; $a++ ){
                      if(strpos( $SiteMRF, $_Arraysite[$a][3] ) > 0){
-                         $Sitedata= $_Arraysite[$a][4];
+                         $Sitedata= $_Arraysite[$a][3]
+                         $PROVINCE= $_Arraysite[$a][4];
                          $AMPHOE=$_Arraysite[$a][5];
                          $TAMBON=$_Arraysite[$a][6];
                          $LATITUDE=$_Arraysite[$a][7];
@@ -135,7 +135,7 @@ L900  : '.$L900;
 
             else if (strpos($_msg,'-siteaddr') !== false ){
                 $text = $Sitedata.'
-ต.'.$TAMBON.'  อ.'.$AMPHOE.'  จ.'.$PROVINCE[$i];
+ต.'.$TAMBON.'  อ.'.$AMPHOE.'  จ.'.$PROVINCE;
                 $replyToken = $events['events'][0]['replyToken'];
                 $messages = [
                     'type' => 'text',
@@ -159,7 +159,7 @@ L900  : '.$L900;
                 $messages = [
                     'type'=> 'location',
                     'title'=> $Sitedata,
-                    'address'=> 'ต.'.$TAMBON.' อ.'.$AMPHOE.' จ.'.$PROVINCE[$i],
+                    'address'=> 'ต.'.$TAMBON.' อ.'.$AMPHOE.' จ.'.$PROVINCE,
                     'latitude'=> $LATITUDE,
                     'longitude'=> $LONGITUDE
                 ];
