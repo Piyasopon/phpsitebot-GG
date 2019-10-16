@@ -23,93 +23,93 @@ $messages = [
     
       "type"=> "flex",
       "altText"=> "Flex Message",
-      "contents"=> {
+      "contents"=> [
         "type"=> "bubble",
         "direction"=> "ltr",
-        "header"=> {
+        "header"=> [
           "type"=> "box",
           "layout"=> "vertical",
           "backgroundColor"=> "#000033",
           "contents"=> [
-            {
+            [
               "type"=> "text",
               "text"=> "CMI0027",
               "size"=> "xl",
               "align"=> "start",
               "weight"=> "bold"
-            }
           ]
-        },
-        "body"=> {
+          ]
+        ],
+        "body"=> [
           "type"=> "box",
           "layout"=> "vertical",
           "contents"=> [
-            {
+            [
               "type"=> "separator",
               "color"=> "#C3C3C3"
-            },
-            {
+            ],
+            [
               "type"=> "box",
               "layout"=> "baseline",
               "margin"=> "lg",
               "contents"=> [
-                {
+                [
                   "type"=> "text",
                   "text"=> "Merchant",
                   "align"=> "start",
                   "color"=> "#C3C3C3"
-                },
-                {
+                ],
+                [
                   "type"=> "text",
                   "text"=> "BTS 01",
                   "align"=> "end",
                   "color"=> "#000000"
-                }
+                ]
               ]
-            },
-            {
+            ],
+            [
               "type"=> "box",
               "layout"=> "baseline",
               "margin"=> "lg",
               "contents"=> [
-                {
+                [
                   "type"=> "text",
                   "text"=> "New balance",
                   "color"=> "#C3C3C3"
-                },
-                {
+                ],
+                [
                   "type"=> "text",
                   "text"=> "฿ 45.57",
                   "align"=> "end"
-                }
+                ]
               ]
-            },
-            {
+            ],
+            [
               "type"=> "separator",
               "margin"=> "lg",
               "color"=> "#C3C3C3"
-            }
+            ]
           ]
-        },
-        "footer"=> {
+        ],
+        "footer"=> [
           "type"=> "box",
           "layout"=> "horizontal",
           "contents"=> [
-            {
+            [
               "type"=> "text",
               "text"=> "View Details",
               "size"=> "lg",
               "align"=> "start",
               "color"=> "#0084B6",
-              "action"=> {
+              "action"=> [
                 "type"=> "uri",
                 "label"=> "View Details",
                 "uri"=> "https://google.co.th/"
-              }
-            }
+              ]
+            ]
           ]
-        }
-      }
+        ]
+      ]
     
     ];
     $url = 'https://api.line.me/v2/bot/message/reply';
