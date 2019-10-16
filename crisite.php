@@ -18,7 +18,7 @@ $_type = $events['events'][0]['message']['type'];
 
    
 $text = 'ฮั้นแน่ !';
-$code = "http://www.tsid2.daboostudio.com/sitebot/map_strada.php?data=";
+$code = "http://www.tsid2.daboostudio.com/sitebot/map_strada.php?data="."noitacolstrada0560";
 $replyToken = $events['events'][0]['replyToken'];
 $messages = [
     
