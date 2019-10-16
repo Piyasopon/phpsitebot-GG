@@ -95,24 +95,182 @@ if ($id2 == 'C58d56cb4045082304f1de057ad613d30' or $id1 == $ALUserID[$o]){
             }
 
             if (strpos($_msg,'-sitetech') !== false ){
-                $text = $Sitedata.'
-G900  : '.$G900.'
-U850  : '.$U850.'
-U2100 : '.$U2100.'
-L2100 : '.$L2100.'
-L1800 : '.$L1800.'
-L900  : '.$L900;
-                $replyToken = $events['events'][0]['replyToken'];
-                $messages = [
-                    'type' => 'text',
-                    'text' => $text,
-                ];
                 $password = $Sitedata."$".$LATITUDE."$".$LONGITUDE."$".$time."$".$id1;
                 $_encode = openssl_encrypt( $password , $encrypt_method, $key, 0, $iv );
-                $code =  base64_encode( $_encode."$".$secret_iv ); 
+                $_code = base64_encode( $_encode."$".$secret_iv );
+                $code =  "www.tsid2.daboostudio.com/sitebot/map_strada.php?data=".$_code; 
+                $replyToken = $events['events'][0]['replyToken'];
+                $messages = [
+                    "type"=> "flex",
+                    "altText"=> "Flex Message",
+                    "contents"=> [
+                      "type"=> "bubble",
+                      "size"=> "micro",
+                      "direction"=> "ltr",
+                      "header"=> [
+                        "type"=> "box",
+                        "layout"=> "vertical",
+                        "backgroundColor"=> "#000066",
+                        "contents"=> [
+                          [
+                            "type"=> "text",
+                            "text"=> $Sitedata,
+                            "size"=> "xl",
+                            "align"=> "start",
+                            "weight"=> "bold",
+                            "color"=>"#eeeeee"
+                        ]
+                        ]
+                      ],
+                      "body"=> [
+                        "type"=> "box",
+                        "layout"=> "vertical",
+                        "contents"=> [
+                          [
+                            "type"=> "box",
+                            "layout"=> "baseline",
+                            "margin"=> "md",
+                            "contents"=> [
+                              [
+                                "type"=> "text",
+                                "text"=> "G900",
+                                "align"=> "start",
+                                "color"=> "#666666"
+                              ],
+                              [
+                                "type"=> "text",
+                                "text"=> $G900,
+                                "align"=> "end",
+                                "color"=> "#333333"
+                              ]
+                            ]
+                          ],
+                          [
+                              "type"=> "box",
+                              "layout"=> "baseline",
+                              "margin"=> "md",
+                              "contents"=> [
+                                [
+                                  "type"=> "text",
+                                  "text"=> "U850",
+                                  "align"=> "start",
+                                  "color"=> "#666666"
+                                ],
+                                [
+                                  "type"=> "text",
+                                  "text"=> $U850,
+                                  "align"=> "end",
+                                  "color"=> "#333333"
+                                ]
+                              ]
+                            ],
+                            [
+                              "type"=> "box",
+                              "layout"=> "baseline",
+                              "margin"=> "md",
+                              "contents"=> [
+                                [
+                                  "type"=> "text",
+                                  "text"=> "U2100",
+                                  "align"=> "start",
+                                  "color"=> "#666666"
+                                ],
+                                [
+                                  "type"=> "text",
+                                  "text"=> $U2100,
+                                  "align"=> "end",
+                                  "color"=> "#333333"
+                                ]
+                              ]
+                            ],
+                            [
+                              "type"=> "box",
+                              "layout"=> "baseline",
+                              "margin"=> "md",
+                              "contents"=> [
+                                [
+                                  "type"=> "text",
+                                  "text"=> "L2100",
+                                  "align"=> "start",
+                                  "color"=> "#666666"
+                                ],
+                                [
+                                  "type"=> "text",
+                                  "text"=> $L2100,
+                                  "align"=> "end",
+                                  "color"=> "#333333"
+                                ]
+                              ]
+                            ],
+                            [
+                              "type"=> "box",
+                              "layout"=> "baseline",
+                              "margin"=> "md",
+                              "contents"=> [
+                                [
+                                  "type"=> "text",
+                                  "text"=> "L1800",
+                                  "align"=> "start",
+                                  "color"=> "#666666"
+                                ],
+                                [
+                                  "type"=> "text",
+                                  "text"=> $L1800,
+                                  "align"=> "end",
+                                  "color"=> "#333333"
+                                ]
+                              ]
+                            ],
+                            [
+                              "type"=> "box",
+                              "layout"=> "baseline",
+                              "margin"=> "md",
+                              "contents"=> [
+                                [
+                                  "type"=> "text",
+                                  "text"=> "L900",
+                                  "align"=> "start",
+                                  "color"=> "#666666"
+                                ],
+                                [
+                                  "type"=> "text",
+                                  "text"=> $L900,
+                                  "align"=> "end",
+                                  "color"=> "#333333"
+                                ]
+                              ]
+                            ],
+                          [
+                            "type"=> "separator",
+                            "margin"=> "lg",
+                            "color"=> "#C3C3C3"
+                          ]
+                        ]
+                      ],
+                      "footer"=> [
+                        "type"=> "box",
+                        "layout"=> "horizontal",
+                        "contents"=> [
+                          [
+                            "type"=> "text",
+                            "text"=> "View Site Around",
+                            "size"=> "lg",
+                            "align"=> "center",
+                            "color"=> "#0084B6",
+                            "action"=> [
+                              "type"=> "uri",
+                              "label"=> "View Site Around",
+                              "uri"=> $code
+                            ]
+                          ]
+                        ]
+                      ]
+                    ]
+                ];
+
                 $messages2 = [
                     'type' => 'text',
-                    'text' => "www.tsid2.daboostudio.com/sitebot/map_strada.php?data=".$code,
+                    'text' => $code,
                 ];
                 $url = 'https://api.line.me/v2/bot/message/reply';
                 $data = [
