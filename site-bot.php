@@ -276,25 +276,126 @@ if ($id2 == 'C58d56cb4045082304f1de057ad613d30' or $id1 == $ALUserID[$o]){
             }
 
             else if (strpos($_msg,'-siteaddr') !== false ){
-                $text = $Sitedata.'
-ต.'.$TAMBON.'  อ.'.$AMPHOE.'  จ.'.$PROVINCE[$i];
-                $replyToken = $events['events'][0]['replyToken'];
-                $messages = [
-                    'type' => 'text',
-                    'text' => $text,
-                ];
                 $password = $Sitedata."$".$LATITUDE."$".$LONGITUDE."$".$time."$".$id1;
                 $_encode = openssl_encrypt( $password , $encrypt_method, $key, 0, $iv );
-                $code =  base64_encode( $_encode."$".$secret_iv );  
-                $messages2 = [
-                    'type' => 'text',
-                    'text' => "www.tsid2.daboostudio.com/sitebot/map_strada.php?data=".$code,
+                $_code = base64_encode( $_encode."$".$secret_iv );
+                $code =  "http://www.tsid2.daboostudio.com/sitebot/map_strada.php?data=".$_code; 
+                $replyToken = $events['events'][0]['replyToken'];
+                $messages = [
+                    "type"=> "flex",
+                    "altText"=> "Flex Message",
+                    "contents"=> [
+                    "type"=> "bubble",
+                    "size"=> "kilo",
+                    "direction"=> "ltr",
+                    "header"=> [
+                        "type"=> "box",
+                        "layout"=> "vertical",
+                        "backgroundColor"=> "#000066",
+                        "contents"=> [
+                        [
+                            "type"=> "text",
+                            "text"=> $Sitedata,
+                            "size"=> "xl",
+                            "align"=> "start",
+                            "weight"=> "bold",
+                            "color"=>"#eeeeee"
+                        ]
+                        ]
+                    ],
+                    "body"=> [
+                        "type"=> "box",
+                        "layout"=> "vertical",
+                        "contents"=> [
+                        [
+                            "type"=> "box",
+                            "layout"=> "baseline",
+                            "margin"=> "md",
+                            "contents"=> [
+                            [
+                                "type"=> "text",
+                                "text"=> "ตำบล",
+                                "align"=> "start",
+                                "color"=> "#666666"
+                            ],
+                            [
+                                "type"=> "text",
+                                "text"=> $TAMBON,
+                                "align"=> "end",
+                                "color"=> "#333333"
+                            ]
+                            ]
+                        ],
+                        [
+                            "type"=> "box",
+                            "layout"=> "baseline",
+                            "margin"=> "md",
+                            "contents"=> [
+                                [
+                                "type"=> "text",
+                                "text"=> "อำเภอ",
+                                "align"=> "start",
+                                "color"=> "#666666"
+                                ],
+                                [
+                                "type"=> "text",
+                                "text"=> $AMPHOE,
+                                "align"=> "end",
+                                "color"=> "#333333"
+                                ]
+                            ]
+                            ],
+                            [
+                            "type"=> "box",
+                            "layout"=> "baseline",
+                            "margin"=> "md",
+                            "contents"=> [
+                                [
+                                "type"=> "text",
+                                "text"=> "จังหวัด",
+                                "align"=> "start",
+                                "color"=> "#666666"
+                                ],
+                                [
+                                "type"=> "text",
+                                "text"=> $PROVINCE[$i],
+                                "align"=> "end",
+                                "color"=> "#333333"
+                                ]
+                            ]
+                            ],
+                        [
+                            "type"=> "separator",
+                            "margin"=> "lg",
+                            "color"=> "#C3C3C3"
+                        ]
+                        ]
+                    ],
+                    "footer"=> [
+                        "type"=> "box",
+                        "layout"=> "horizontal",
+                        "contents"=> [
+                        [
+                            "type"=> "text",
+                            "text"=> "View Site Around",
+                            "size"=> "lg",
+                            "align"=> "center",
+                            "color"=> "#0084B6",
+                            "action"=> [
+                            "type"=> "uri",
+                            "label"=> "View Site Around",
+                            "uri"=> $code
+                            ]
+                        ]
+                        ]
+                    ]
+                    ]
                 ];
                 $url = 'https://api.line.me/v2/bot/message/reply';
                 $data = [
                     'replyToken' => $replyToken,
-                    'messages' => [$messages,$messages2]
-                ]; 
+                    'messages' => [$messages]
+                ];
             }
             else if (strpos($_msg,'-siteloc') !== false ){      
                 $replyToken = $events['events'][0]['replyToken'];
@@ -307,10 +408,34 @@ if ($id2 == 'C58d56cb4045082304f1de057ad613d30' or $id1 == $ALUserID[$o]){
                 ];
                 $password = $Sitedata."$".$LATITUDE."$".$LONGITUDE."$".$time."$".$id1;
                 $_encode = openssl_encrypt( $password , $encrypt_method, $key, 0, $iv );
-                $code =  base64_encode( $_encode."$".$secret_iv );  
+                $_code = base64_encode( $_encode."$".$secret_iv );
+                $code =  "http://www.tsid2.daboostudio.com/sitebot/map_strada.php?data=".$_code; 
                 $messages2 = [
-                    'type' => 'text',
-                    'text' => "www.tsid2.daboostudio.com/sitebot/map_strada.php?data=".$code,
+                    "type"=> "flex",
+                    "altText"=> "Flex Message",
+                    "contents"=> [
+                      "type"=> "bubble",
+                      "size"=> "kilo",
+                      "direction"=> "ltr",
+                      "footer"=> [
+                        "type"=> "box",
+                        "layout"=> "horizontal",
+                        "contents"=> [
+                          [
+                            "type"=> "text",
+                            "text"=> "View Site Around",
+                            "size"=> "lg",
+                            "align"=> "center",
+                            "color"=> "#0084B6",
+                            "action"=> [
+                              "type"=> "uri",
+                              "label"=> "View Site Around",
+                              "uri"=> $code
+                            ]
+                          ]
+                        ]
+                      ]
+                    ]
                 ];
                 $url = 'https://api.line.me/v2/bot/message/reply';
                 $data = [
@@ -323,8 +448,7 @@ if ($id2 == 'C58d56cb4045082304f1de057ad613d30' or $id1 == $ALUserID[$o]){
 ผมมีคำสั่งดังนี้
 -siteaddr XXXxxxx  ใช้หาเขตพื้นที่ตั้งของไซต์
 -sitetech XXXxxxx  ใช้หาเทคโนโลยีที่มีในไซต์
--siteloc XXXxxxx  ใช้หาพิกัด GPS ของไซต์
-link ด้านล่างใช้หาไซต์รอบๆ ไซต์ที่ต้องการ';
+-siteloc XXXxxxx  ใช้หาพิกัด GPS ของไซต์';
                 $replyToken = $events['events'][0]['replyToken'];
                 $messages = [
                         'type' => 'text',
@@ -354,13 +478,37 @@ link ด้านล่างใช้หาไซต์รอบๆ ไซต�
     else if($_type == "location"){
        $_lat = $events['events'][0]['message']['latitude'];
        $_lon = $events['events'][0]['message']['longitude'];
-       $password = "your location$".$_lat."$".$_lon."$".$time."$".$id1;
+       $password = $Sitedata."$".$LATITUDE."$".$LONGITUDE."$".$time."$".$id1;
        $_encode = openssl_encrypt( $password , $encrypt_method, $key, 0, $iv );
-       $code =  base64_encode( $_encode."$".$secret_iv ); 
+       $_code = base64_encode( $_encode."$".$secret_iv );
+       $code =  "http://www.tsid2.daboostudio.com/sitebot/map_strada.php?data=".$_code; 
        $replyToken = $events['events'][0]['replyToken'];
        $messages = [
-           'type' => 'text',
-           'text' => "www.tsid2.daboostudio.com/sitebot/map_strada.php?data=".$code,
+        "type"=> "flex",
+        "altText"=> "Flex Message",
+        "contents"=> [
+          "type"=> "bubble",
+          "size"=> "kilo",
+          "direction"=> "ltr",
+          "footer"=> [
+            "type"=> "box",
+            "layout"=> "horizontal",
+            "contents"=> [
+              [
+                "type"=> "text",
+                "text"=> "View Site Around",
+                "size"=> "lg",
+                "align"=> "center",
+                "color"=> "#0084B6",
+                "action"=> [
+                  "type"=> "uri",
+                  "label"=> "View Site Around",
+                  "uri"=> $code
+                ]
+              ]
+            ]
+          ]
+        ]
        ];
        $url = 'https://api.line.me/v2/bot/message/reply';
        $data = [
