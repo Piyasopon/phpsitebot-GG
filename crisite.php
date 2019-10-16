@@ -25,7 +25,7 @@ $messages = [
       "altText"=> "Flex Message",
       "contents"=> [
         "type"=> "bubble",
-        "size": "kilo",
+        "size"=> "kilo",
         "direction"=> "ltr",
         "header"=> [
           "type"=> "box",
