@@ -16,230 +16,108 @@ $id3 = $events['events'][0]['source']['room'];
 $_msg = $events['events'][0]['message']['text'];
 $_type = $events['events'][0]['message']['type'];
 
-        function random_char($len){
-            $chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
-            $ret_char = "";
-            $num = strlen($chars);
-            for($i = 0; $i < $len; $i++) {
-                 $ret_char.= $chars[rand()%$num];
-                 $ret_char.=""; 
-            }
-            return $ret_char; 
-       }
-       date_default_timezone_set('Asia/Bangkok');
-       $time = date("Y-m-d h:i:se");
-       $secret_key = 'noitacolstrada0560';//เปลี่ยน
-       $secret_iv = random_char(20);//เปลี่ยน
-       $encrypt_method = "AES-256-CBC";
-       $key = hash( 'sha256', $secret_key );
-       $iv = substr( hash( 'sha256', $secret_iv ), 0, 16 );
-
-
-$SiteMsg = substr($_msg,-7);
-$SiteMRF = strtoupper($SiteMsg);
-$bMsg = substr($SiteMRF,0,3);
-$cMsg = substr($SiteMRF,0,4);
-$Pdata = array("CMI","CRI","LPG","LPN","MHS","NAN","PHE","PYO");
-$Sitedata= "XXXxxxx";
-$PROVINCE= "xxxxxxxxxxxx";
-$AMPHOE="xxxxxxxxxxxx";
-$TAMBON="xxxxxxxxx";
-$LATITUDE=90;
-$LONGITUDE=0;
-$G900="Active";
-$U850="Active";
-$U2100="Active";
-$L2100="Active";
-$L1800="Active";
-$L900="Active";
-$ALUserID = array('U539d05590b586ea7c8c4b3141c0a642f','Uc40296b6f23838c56dd035afb140df2f','U4cf61af20c41d2a97ee276ee998d41ae','U8932b6feb22e565f6b1f6fea466b9131');
-
-
-for ($o = 0;$o <3; $o++){if ($ALUserID[$o] == $id1){break;}}
-
-if ($id2 == 'C58d56cb4045082304f1de057ad613d30' or $id1 == $ALUserID[$o]){
-    if($_type == "text"){
-        if (strpos($_msg,'-') !== false ){
-
-
-            $map = file_get_contents('http://www.tsid2.daboostudio.com/sitebot/test.php');
-            $site = str_replace('(','',str_replace('Array','',$map));
-            $_site = explode(')',$site);
-            $Arraysite = [];
-
-            for($i = 0 ; $i < count($_site) ; $i++){
-                if(strpos( $_site[$i] , $SiteMRF ) > 0){
-                $Site = str_replace('[0]','',$_site[$i]);
-                $Site = str_replace('[1]','',$Site);
-                $Site = str_replace('[2]','',$Site);
-                $Site = str_replace('[3]','',$Site);
-                $Site = str_replace('[4]','',$Site);
-                $Site = str_replace('[5]','',$Site);
-                $Site = str_replace('[6]','',$Site);
-                $Site = str_replace('[7]','',$Site);
-                $Site = str_replace('[8]','',$Site);
-                $Site = str_replace('[9]','',$Site);
-                $Site = str_replace('[10]','',$Site);
-                $Site = str_replace('[11]','',$Site);
-                $Site = str_replace('[12]','',$Site);
-                $Site = str_replace('[13]','',$Site);
-                $Site = str_replace('[14]','',$Site);
-                $Arraysite = explode('=>',$Site);
-    $PROVINCE= chop($Arraysite[4]);
-    $Sitedata= chop($Arraysite[3]);
-                $AMPHOE=chop($Arraysite[5]);
-                $TAMBON=chop($Arraysite[6]);
-                $LATITUDE=chop($Arraysite[7]);
-                $LONGITUDE=chop($Arraysite[8]);
-                $G900=chop($Arraysite[10]);
-                $U850=chop($Arraysite[11]);
-                $U2100=chop($Arraysite[12]);
-                $L2100=chop($Arraysite[13]);
-                $L1800=chop($Arraysite[14]);
-                $L900=chop($Arraysite[15]);
-                            break;    
-                }
-               }
-         
-
-            if (strpos($_msg,'-sitetech') !== false ){
-                $text = $Sitedata.'
-G900  : '.$G900.'
-U850  : '.$U850.'
-U2100 : '.$U2100.'
-L2100 : '.$L2100.'
-L1800 : '.$L1800.'
-L900  : '.$L900;
-                $replyToken = $events['events'][0]['replyToken'];
-                $messages = [
-                    'type' => 'text',
-                    'text' => $text,
-                ];
-                $password = $Sitedata."$".$LATITUDE."$".$LONGITUDE."$".$time."$".$id1;
-                $_encode = openssl_encrypt( $password , $encrypt_method, $key, 0, $iv );
-                $code =  base64_encode( $_encode."$".$secret_iv ); 
-                $messages2 = [
-                    'type' => 'text',
-                    'text' => "www.tsid2.daboostudio.com/sitebot/map_strada.php?data=".$code,
-                ];
-                $url = 'https://api.line.me/v2/bot/message/reply';
-                $data = [
-                    'replyToken' => $replyToken,
-                    'messages' => [$messages,$messages2]
-                ];
-
-            }
-
-            else if (strpos($_msg,'-siteaddr') !== false ){
-                $text = $Sitedata.'
-ต.'.$TAMBON.'  อ.'.$AMPHOE.'  จ.'.$PROVINCE;
-                $replyToken = $events['events'][0]['replyToken'];
-                $messages = [
-                    'type' => 'text',
-                    'text' => $text,
-                ];
-                $password = $Sitedata."$".$LATITUDE."$".$LONGITUDE."$".$time."$".$id1;
-                $_encode = openssl_encrypt( $password , $encrypt_method, $key, 0, $iv );
-                $code =  base64_encode( $_encode."$".$secret_iv );  
-                $messages2 = [
-                    'type' => 'text',
-                    'text' => "www.tsid2.daboostudio.com/sitebot/map_strada.php?data=".$code,
-                ];
-                $url = 'https://api.line.me/v2/bot/message/reply';
-                $data = [
-                    'replyToken' => $replyToken,
-                    'messages' => [$messages,$messages2]
-                ]; 
-            }
-            else if (strpos($_msg,'-siteloc') !== false ){      
-                $replyToken = $events['events'][0]['replyToken'];
-                $messages = [
-                    'type'=> 'location',
-                    'title'=> $Sitedata,
-                    'address'=> 'ต.'.$TAMBON.' อ.'.$AMPHOE.' จ.'.$PROVINCE,
-                    'latitude'=> $LATITUDE,
-                    'longitude'=> $LONGITUDE
-                ];
-                $password = $Sitedata."$".$LATITUDE."$".$LONGITUDE."$".$time."$".$id1;
-                $_encode = openssl_encrypt( $password , $encrypt_method, $key, 0, $iv );
-                $code =  base64_encode( $_encode."$".$secret_iv );  
-                $messages2 = [
-                    'type' => 'text',
-                    'text' => "www.tsid2.daboostudio.com/sitebot/map_strada.php?data=".$code,
-                ];
-                $url = 'https://api.line.me/v2/bot/message/reply';
-                $data = [
-                    'replyToken' => $replyToken,
-                    'messages' => [$messages,$messages2]
-                ];
-            }
-            else if (strpos($_msg,'-help') !== false ){
-                $text = 'สวัสดีครับ
-ผมมีคำสั่งดังนี้
--siteaddr XXXxxxx  ใช้หาเขตพื้นที่ตั้งของไซต์
--sitetech XXXxxxx  ใช้หาเทคโนโลยีที่มีในไซต์
--siteloc XXXxxxx  ใช้หาพิกัด GPS ของไซต์
-link ด้านล่างใช้หาไซต์รอบๆ ไซต์ที่ต้องการ';
-                $replyToken = $events['events'][0]['replyToken'];
-                $messages = [
-                        'type' => 'text',
-                        'text' => $text,
-                ];
-                $url = 'https://api.line.me/v2/bot/message/reply';
-                $data = [
-                    'replyToken' => $replyToken,
-                    'messages' => [$messages]
-                ];    
-            }
-            else{
-                $text = 'ไม่พบข้อมูล '.$_msg.' จากผู้ใช้ '.$id1;
-                $replyToken = $events['events'][0]['replyToken'];
-                $messages = [
-                    'type' => 'text',
-                    'text' => $text,
-                ];
-                $url = 'https://api.line.me/v2/bot/message/reply';
-                $data = [
-                    'replyToken' => $replyToken,
-                    'messages' => [$messages]
-                ];
-            }
-        }
-    }
-    else if($_type == "location"){
-       $_lat = $events['events'][0]['message']['latitude'];
-       $_lon = $events['events'][0]['message']['longitude'];
-       $password = "your location$".$_lat."$".$_lon."$".$time."$".$id1;
-       $_encode = openssl_encrypt( $password , $encrypt_method, $key, 0, $iv );
-       $code =  base64_encode( $_encode."$".$secret_iv ); 
-       $replyToken = $events['events'][0]['replyToken'];
-       $messages = [
-           'type' => 'text',
-           'text' => "www.tsid2.daboostudio.com/sitebot/map_strada.php?data=".$code,
-       ];
-       $url = 'https://api.line.me/v2/bot/message/reply';
-       $data = [
-           'replyToken' => $replyToken,
-           'messages' => [$messages]
-       ];
-        
-    }
-    
-}
-
-else    
-{$text = 'ฮั้นแน่ !';
+   
+$text = 'ฮั้นแน่ !';
 $replyToken = $events['events'][0]['replyToken'];
 $messages = [
-        'type' => 'text',
-        'text' => $text,
+    {
+      "type"=> "flex",
+      "altText"=> "Flex Message",
+      "contents"=> {
+        "type"=> "bubble",
+        "direction"=> "ltr",
+        "header"=> {
+          "type"=> "box",
+          "layout"=> "vertical",
+          "backgroundColor"=> "#000033",
+          "contents"=> [
+            {
+              "type"=> "text",
+              "text"=> "CMI0027",
+              "size"=> "xl",
+              "align"=> "start",
+              "weight"=> "bold"
+            }
+          ]
+        },
+        "body"=> {
+          "type"=> "box",
+          "layout"=> "vertical",
+          "contents"=> [
+            {
+              "type"=> "separator",
+              "color"=> "#C3C3C3"
+            },
+            {
+              "type"=> "box",
+              "layout"=> "baseline",
+              "margin"=> "lg",
+              "contents"=> [
+                {
+                  "type"=> "text",
+                  "text"=> "Merchant",
+                  "align"=> "start",
+                  "color"=> "#C3C3C3"
+                },
+                {
+                  "type"=> "text",
+                  "text"=> "BTS 01",
+                  "align"=> "end",
+                  "color"=> "#000000"
+                }
+              ]
+            },
+            {
+              "type"=> "box",
+              "layout"=> "baseline",
+              "margin"=> "lg",
+              "contents"=> [
+                {
+                  "type"=> "text",
+                  "text"=> "New balance",
+                  "color"=> "#C3C3C3"
+                },
+                {
+                  "type"=> "text",
+                  "text"=> "฿ 45.57",
+                  "align"=> "end"
+                }
+              ]
+            },
+            {
+              "type"=> "separator",
+              "margin"=> "lg",
+              "color"=> "#C3C3C3"
+            }
+          ]
+        },
+        "footer"=> {
+          "type"=> "box",
+          "layout"=> "horizontal",
+          "contents"=> [
+            {
+              "type"=> "text",
+              "text"=> "View Details",
+              "size"=> "lg",
+              "align"=> "start",
+              "color"=> "#0084B6",
+              "action"=> {
+                "type"=> "uri",
+                "label"=> "View Details",
+                "uri"=> "https://google.co.th/"
+              }
+            }
+          ]
+        }
+      }
+    }
     ];
     $url = 'https://api.line.me/v2/bot/message/reply';
     $data = [
         'replyToken' => $replyToken,
         'messages' => [$messages]
     ];
-}
+
     $post = json_encode($data);
     $headers = array('Content-Type: application/json', 'Authorization: Bearer ' . $access_token);
     $ch = curl_init($url);
