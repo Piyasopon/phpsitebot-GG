@@ -20,7 +20,7 @@ $_type = $events['events'][0]['message']['type'];
 $text = 'ฮั้นแน่ !';
 $replyToken = $events['events'][0]['replyToken'];
 $messages = [
-    {
+    
       "type"=> "flex",
       "altText"=> "Flex Message",
       "contents"=> {
@@ -110,7 +110,7 @@ $messages = [
           ]
         }
       }
-    }
+    
     ];
     $url = 'https://api.line.me/v2/bot/message/reply';
     $data = [
