@@ -267,15 +267,10 @@ if ($id2 == 'C58d56cb4045082304f1de057ad613d30' or $id1 == $ALUserID[$o]){
                       ]
                     ]
                 ];
-
-                $messages2 = [
-                    'type' => 'text',
-                    'text' => $code,
-                ];
                 $url = 'https://api.line.me/v2/bot/message/reply';
                 $data = [
                     'replyToken' => $replyToken,
-                    'messages' => [$messages,$messages2]
+                    'messages' => [$messages]
                 ];
 
             }
