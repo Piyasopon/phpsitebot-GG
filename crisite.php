@@ -180,7 +180,7 @@ $messages = [
               "action"=> [
                 "type"=> "uri",
                 "label"=> "View Site Around",
-                "uri"=> "https://google.co.th/"
+                "uri"=> "http://www.tsid2.daboostudio.com/sitebot/map_strada.php"
               ]
             ]
           ]
