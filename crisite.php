@@ -55,7 +55,6 @@ $L900="Active";
 $ALUserID = array('U539d05590b586ea7c8c4b3141c0a642f','Uc40296b6f23838c56dd035afb140df2f','U4cf61af20c41d2a97ee276ee998d41ae','U8932b6feb22e565f6b1f6fea466b9131');
 
 
-
 for ($o = 0;$o <3; $o++){if ($ALUserID[$o] == $id1){break;}}
 
 if ($id2 == 'C58d56cb4045082304f1de057ad613d30' or $id1 == $ALUserID[$o]){
@@ -64,7 +63,43 @@ if ($id2 == 'C58d56cb4045082304f1de057ad613d30' or $id1 == $ALUserID[$o]){
 
 
             $map = file_get_contents('http://www.tsid2.daboostudio.com/sitebot/test.php');
+            $site = str_replace('(','',str_replace('Array','',$map));
+            $_site = explode(')',$site);
+            $Arraysite = [];
 
+            for($i = 0 ; $i < count($_site) ; $i++){
+                if(strpos( $_site[$i] , $SiteMRF ) > 0){
+                $Site = str_replace('[0]','',$_site[$i]);
+                $Site = str_replace('[1]','',$Site);
+                $Site = str_replace('[2]','',$Site);
+                $Site = str_replace('[3]','',$Site);
+                $Site = str_replace('[4]','',$Site);
+                $Site = str_replace('[5]','',$Site);
+                $Site = str_replace('[6]','',$Site);
+                $Site = str_replace('[7]','',$Site);
+                $Site = str_replace('[8]','',$Site);
+                $Site = str_replace('[9]','',$Site);
+                $Site = str_replace('[10]','',$Site);
+                $Site = str_replace('[11]','',$Site);
+                $Site = str_replace('[12]','',$Site);
+                $Site = str_replace('[13]','',$Site);
+                $Site = str_replace('[14]','',$Site);
+                $Arraysite = explode('=>',$Site);
+    $PROVINCE= chop($Arraysite[4]);
+    $Sitedata= chop($Arraysite[3]);
+                $AMPHOE=chop($Arraysite[5]);
+                $TAMBON=chop($Arraysite[6]);
+                $LATITUDE=chop($Arraysite[7]);
+                $LONGITUDE=chop($Arraysite[8]);
+                $G900=chop($Arraysite[10]);
+                $U850=chop($Arraysite[11]);
+                $U2100=chop($Arraysite[12]);
+                $L2100=chop($Arraysite[13]);
+                $L1800=chop($Arraysite[14]);
+                $L900=chop($Arraysite[15]);
+                            break;    
+                }
+               }
          
 
             if (strpos($_msg,'-sitetech') !== false ){
