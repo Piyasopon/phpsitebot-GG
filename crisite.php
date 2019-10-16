@@ -15,7 +15,13 @@ $id3 = $events['events'][0]['source']['room'];
 // Validate parsed JSON data
 $_msg = $events['events'][0]['message']['text'];
 $_type = $events['events'][0]['message']['type'];
-
+$code = '';
+$G900 = '';
+$U850 = '';
+$U2100 = '';
+$L2100 = '';
+$L1800 = '';
+$L900 = '';
    
 $text = 'ฮั้นแน่ !';
 $replyToken = $events['events'][0]['replyToken'];
