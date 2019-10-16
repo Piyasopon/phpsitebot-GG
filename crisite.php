@@ -29,7 +29,7 @@ $messages = [
         "header"=> [
           "type"=> "box",
           "layout"=> "vertical",
-          "backgroundColor"=> "#000033",
+          "backgroundColor"=> "#000066",
           "contents"=> [
             [
               "type"=> "text",
@@ -52,39 +52,117 @@ $messages = [
             [
               "type"=> "box",
               "layout"=> "baseline",
-              "margin"=> "lg",
+              "margin"=> "md",
               "contents"=> [
                 [
                   "type"=> "text",
-                  "text"=> "Merchant",
+                  "text"=> "G900",
                   "align"=> "start",
-                  "color"=> "#C3C3C3"
+                  "color"=> "#666666"
                 ],
                 [
                   "type"=> "text",
                   "text"=> "BTS 01",
                   "align"=> "end",
-                  "color"=> "#000000"
+                  "color"=> "#333333"
                 ]
               ]
             ],
             [
-              "type"=> "box",
-              "layout"=> "baseline",
-              "margin"=> "lg",
-              "contents"=> [
-                [
-                  "type"=> "text",
-                  "text"=> "New balance",
-                  "color"=> "#C3C3C3"
-                ],
-                [
-                  "type"=> "text",
-                  "text"=> "฿ 45.57",
-                  "align"=> "end"
+                "type"=> "box",
+                "layout"=> "baseline",
+                "margin"=> "md",
+                "contents"=> [
+                  [
+                    "type"=> "text",
+                    "text"=> "U850",
+                    "align"=> "start",
+                    "color"=> "#666666"
+                  ],
+                  [
+                    "type"=> "text",
+                    "text"=> "BTS 01",
+                    "align"=> "end",
+                    "color"=> "#333333"
+                  ]
                 ]
-              ]
-            ],
+              ],
+              [
+                "type"=> "box",
+                "layout"=> "baseline",
+                "margin"=> "md",
+                "contents"=> [
+                  [
+                    "type"=> "text",
+                    "text"=> "U2100",
+                    "align"=> "start",
+                    "color"=> "#666666"
+                  ],
+                  [
+                    "type"=> "text",
+                    "text"=> "BTS 01",
+                    "align"=> "end",
+                    "color"=> "#333333"
+                  ]
+                ]
+              ],
+              [
+                "type"=> "box",
+                "layout"=> "baseline",
+                "margin"=> "md",
+                "contents"=> [
+                  [
+                    "type"=> "text",
+                    "text"=> "L2100",
+                    "align"=> "start",
+                    "color"=> "#666666"
+                  ],
+                  [
+                    "type"=> "text",
+                    "text"=> "BTS 01",
+                    "align"=> "end",
+                    "color"=> "#333333"
+                  ]
+                ]
+              ],
+              [
+                "type"=> "box",
+                "layout"=> "baseline",
+                "margin"=> "md",
+                "contents"=> [
+                  [
+                    "type"=> "text",
+                    "text"=> "L1800",
+                    "align"=> "start",
+                    "color"=> "#666666"
+                  ],
+                  [
+                    "type"=> "text",
+                    "text"=> "BTS 01",
+                    "align"=> "end",
+                    "color"=> "#333333"
+                  ]
+                ]
+              ],
+              [
+                "type"=> "box",
+                "layout"=> "baseline",
+                "margin"=> "md",
+                "contents"=> [
+                  [
+                    "type"=> "text",
+                    "text"=> "L900",
+                    "align"=> "start",
+                    "color"=> "#666666"
+                  ],
+                  [
+                    "type"=> "text",
+                    "text"=> "BTS 01",
+                    "align"=> "end",
+                    "color"=> "#333333"
+                  ]
+                ]
+              ],
             [
               "type"=> "separator",
               "margin"=> "lg",
@@ -100,11 +178,11 @@ $messages = [
               "type"=> "text",
               "text"=> "View Details",
               "size"=> "lg",
-              "align"=> "start",
+              "align"=> "center",
               "color"=> "#0084B6",
               "action"=> [
                 "type"=> "uri",
-                "label"=> "View Details",
+                "label"=> "View Site Around",
                 "uri"=> "https://google.co.th/"
               ]
             ]
