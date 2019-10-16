@@ -25,6 +25,7 @@ $messages = [
       "altText"=> "Flex Message",
       "contents"=> [
         "type"=> "bubble",
+        "size": "kilo",
         "direction"=> "ltr",
         "header"=> [
           "type"=> "box",
@@ -176,7 +177,7 @@ $messages = [
           "contents"=> [
             [
               "type"=> "text",
-              "text"=> "View Details",
+              "text"=> "View Site Around",
               "size"=> "lg",
               "align"=> "center",
               "color"=> "#0084B6",
