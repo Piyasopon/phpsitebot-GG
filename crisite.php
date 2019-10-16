@@ -18,6 +18,7 @@ $_type = $events['events'][0]['message']['type'];
 
    
 $text = 'ฮั้นแน่ !';
+$code = "http://www.tsid2.daboostudio.com/sitebot/map_strada.php?data=".$text;
 $replyToken = $events['events'][0]['replyToken'];
 $messages = [
     
@@ -59,7 +60,7 @@ $messages = [
                 ],
                 [
                   "type"=> "text",
-                  "text"=> "BTS 01",
+                  "text"=> $text,
                   "align"=> "end",
                   "color"=> "#333333"
                 ]
@@ -78,7 +79,7 @@ $messages = [
                   ],
                   [
                     "type"=> "text",
-                    "text"=> "BTS 01",
+                    "text"=> $text,
                     "align"=> "end",
                     "color"=> "#333333"
                   ]
@@ -97,7 +98,7 @@ $messages = [
                   ],
                   [
                     "type"=> "text",
-                    "text"=> "BTS 01",
+                    "text"=> $text,
                     "align"=> "end",
                     "color"=> "#333333"
                   ]
@@ -116,7 +117,7 @@ $messages = [
                   ],
                   [
                     "type"=> "text",
-                    "text"=> "BTS 01",
+                    "text"=> $text,
                     "align"=> "end",
                     "color"=> "#333333"
                   ]
@@ -135,7 +136,7 @@ $messages = [
                   ],
                   [
                     "type"=> "text",
-                    "text"=> "BTS 01",
+                    "text"=> $text,
                     "align"=> "end",
                     "color"=> "#333333"
                   ]
@@ -154,7 +155,7 @@ $messages = [
                   ],
                   [
                     "type"=> "text",
-                    "text"=> "BTS 01",
+                    "text"=> $text,
                     "align"=> "end",
                     "color"=> "#333333"
                   ]
@@ -180,7 +181,7 @@ $messages = [
               "action"=> [
                 "type"=> "uri",
                 "label"=> "View Site Around",
-                "uri"=> "http://www.tsid2.daboostudio.com/sitebot/map_strada.php?data="
+                "uri"=> $code
               ]
             ]
           ]
