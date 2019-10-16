@@ -66,44 +66,39 @@ if ($id2 == 'C58d56cb4045082304f1de057ad613d30' or $id1 == $ALUserID[$o]){
             $site = str_replace('(','',str_replace('Array','',$map));
             $_site = explode(')',$site);
             $Arraysite = [];
-            $_Arraysite = [];
+
             for($i = 0 ; $i < count($_site) ; $i++){
-             $Site = str_replace('[0]','',$_site[$i]);
-             $Site = str_replace('[1]','',$Site);
-             $Site = str_replace('[2]','',$Site);
-             $Site = str_replace('[3]','',$Site);
-             $Site = str_replace('[4]','',$Site);
-             $Site = str_replace('[5]','',$Site);
-             $Site = str_replace('[6]','',$Site);
-             $Site = str_replace('[7]','',$Site);
-             $Site = str_replace('[8]','',$Site);
-             $Site = str_replace('[9]','',$Site);
-             $Site = str_replace('[10]','',$Site);
-             $Site = str_replace('[11]','',$Site);
-             $Site = str_replace('[12]','',$Site);
-             $Site = str_replace('[13]','',$Site);
-             $Site = str_replace('[14]','',$Site);
-             $Arraysite = explode('=>',$Site);
-             array_push($_Arraysite,$Arraysite);
-            }
-         
-                 for( $a=0 ; $a < count($_Arraysite) ; $a++ ){
-                     if(strpos( $SiteMRF, $_Arraysite[$a][3] ) > 0){
-                         $Sitedata= $_Arraysite[$a][3];
-                         $PROVINCE= $_Arraysite[$a][4];
-                         $AMPHOE=$_Arraysite[$a][5];
-                         $TAMBON=$_Arraysite[$a][6];
-                         $LATITUDE=$_Arraysite[$a][7];
-                         $LONGITUDE=$_Arraysite[$a][8];
-                         $G900=$_Arraysite[$a][10];
-                         $U850=$_Arraysite[$a][11];
-                         $U2100=$_Arraysite[$a][12];
-                         $L2100=$_Arraysite[$a][13];
-                         $L1800=$_Arraysite[$a][14];
-                         $L900=$_Arraysite[$a][15];
-                         break;
-                     }
-                 }
+                if(strpos( $_site[$i] , $SiteMRF ) > 0){
+                $Site = str_replace('[0]','',$_site[$i]);
+                $Site = str_replace('[1]','',$Site);
+                $Site = str_replace('[2]','',$Site);
+                $Site = str_replace('[3]','',$Site);
+                $Site = str_replace('[4]','',$Site);
+                $Site = str_replace('[5]','',$Site);
+                $Site = str_replace('[6]','',$Site);
+                $Site = str_replace('[7]','',$Site);
+                $Site = str_replace('[8]','',$Site);
+                $Site = str_replace('[9]','',$Site);
+                $Site = str_replace('[10]','',$Site);
+                $Site = str_replace('[11]','',$Site);
+                $Site = str_replace('[12]','',$Site);
+                $Site = str_replace('[13]','',$Site);
+                $Site = str_replace('[14]','',$Site);
+                $Arraysite = explode('=>',$Site);
+                            $Sitedata= $Arraysite[4];
+                            $AMPHOE=$Arraysite[5];
+                            $TAMBON=$Arraysite[6];
+                            $LATITUDE=$Arraysite[7];
+                            $LONGITUDE=$Arraysite[8];
+                            $G900=$Arraysite[10];
+                            $U850=$Arraysite[11];
+                            $U2100=$Arraysite[12];
+                            $L2100=$Arraysite[13];
+                            $L1800=$Arraysite[14];
+                            $L900=$Arraysite[15];
+                            break;    
+                }
+               }
          
 
             if (strpos($_msg,'-sitetech') !== false ){
