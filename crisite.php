@@ -34,7 +34,7 @@ $messages = [
           "contents"=> [
             [
               "type"=> "text",
-              "text"=> "CMI0027",
+              "text"=> $text,
               "size"=> "xl",
               "align"=> "start",
               "weight"=> "bold",
