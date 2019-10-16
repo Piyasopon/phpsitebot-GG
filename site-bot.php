@@ -98,14 +98,14 @@ if ($id2 == 'C58d56cb4045082304f1de057ad613d30' or $id1 == $ALUserID[$o]){
                 $password = $Sitedata."$".$LATITUDE."$".$LONGITUDE."$".$time."$".$id1;
                 $_encode = openssl_encrypt( $password , $encrypt_method, $key, 0, $iv );
                 $_code = base64_encode( $_encode."$".$secret_iv );
-                $code =  "www.tsid2.daboostudio.com/sitebot/map_strada.php?data=".$_code; 
+                $code =  "http://www.tsid2.daboostudio.com/sitebot/map_strada.php?data=".$_code; 
                 $replyToken = $events['events'][0]['replyToken'];
                 $messages = [
                     "type"=> "flex",
                     "altText"=> "Flex Message",
                     "contents"=> [
                       "type"=> "bubble",
-                      "size"=> "micro",
+                      "size"=> "kilo",
                       "direction"=> "ltr",
                       "header"=> [
                         "type"=> "box",
