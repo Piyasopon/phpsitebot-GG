@@ -85,17 +85,18 @@ if ($id2 == 'C58d56cb4045082304f1de057ad613d30' or $id1 == $ALUserID[$o]){
                 $Site = str_replace('[13]','',$Site);
                 $Site = str_replace('[14]','',$Site);
                 $Arraysite = explode('=>',$Site);
-                            $Sitedata= $Arraysite[4];
-                            $AMPHOE=$Arraysite[5];
-                            $TAMBON=$Arraysite[6];
-                            $LATITUDE=$Arraysite[7];
-                            $LONGITUDE=$Arraysite[8];
-                            $G900=$Arraysite[10];
-                            $U850=$Arraysite[11];
-                            $U2100=$Arraysite[12];
-                            $L2100=$Arraysite[13];
-                            $L1800=$Arraysite[14];
-                            $L900=$Arraysite[15];
+                $PROVINCE= chop($Arraysite[4]);
+                $Sitedata= chop($Arraysite[3]);
+                            $AMPHOE=chop($Arraysite[5]);
+                            $TAMBON=chop($Arraysite[6]);
+                            $LATITUDE=chop($Arraysite[7]);
+                            $LONGITUDE=chop($Arraysite[8]);
+                            $G900=chop($Arraysite[10]);
+                            $U850=chop($Arraysite[11]);
+                            $U2100=chop($Arraysite[12]);
+                            $L2100=chop($Arraysite[13]);
+                            $L1800=chop($Arraysite[14]);
+                            $L900=chop($Arraysite[15]);
                             break;    
                 }
                }
