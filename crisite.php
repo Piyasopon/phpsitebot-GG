@@ -25,7 +25,7 @@ $messages = [
       "altText"=> "Flex Message",
       "contents"=> [
         "type"=> "bubble",
-        "size"=> "kilo",
+        "size"=> "micro",
         "direction"=> "ltr",
         "header"=> [
           "type"=> "box",
@@ -34,7 +34,7 @@ $messages = [
           "contents"=> [
             [
               "type"=> "text",
-              "text"=> "CMI0027",
+              "text"=> $Sitedata,
               "size"=> "xl",
               "align"=> "start",
               "weight"=> "bold",
@@ -46,10 +46,6 @@ $messages = [
           "type"=> "box",
           "layout"=> "vertical",
           "contents"=> [
-            [
-              "type"=> "separator",
-              "color"=> "#C3C3C3"
-            ],
             [
               "type"=> "box",
               "layout"=> "baseline",
@@ -63,7 +59,7 @@ $messages = [
                 ],
                 [
                   "type"=> "text",
-                  "text"=> "BTS 01",
+                  "text"=> $G900,
                   "align"=> "end",
                   "color"=> "#333333"
                 ]
@@ -82,7 +78,7 @@ $messages = [
                   ],
                   [
                     "type"=> "text",
-                    "text"=> "BTS 01",
+                    "text"=> $U850,
                     "align"=> "end",
                     "color"=> "#333333"
                   ]
@@ -101,7 +97,7 @@ $messages = [
                   ],
                   [
                     "type"=> "text",
-                    "text"=> "BTS 01",
+                    "text"=> $U2100,
                     "align"=> "end",
                     "color"=> "#333333"
                   ]
@@ -120,7 +116,7 @@ $messages = [
                   ],
                   [
                     "type"=> "text",
-                    "text"=> "BTS 01",
+                    "text"=> $L2100,
                     "align"=> "end",
                     "color"=> "#333333"
                   ]
@@ -139,7 +135,7 @@ $messages = [
                   ],
                   [
                     "type"=> "text",
-                    "text"=> "BTS 01",
+                    "text"=> $L1800,
                     "align"=> "end",
                     "color"=> "#333333"
                   ]
@@ -158,7 +154,7 @@ $messages = [
                   ],
                   [
                     "type"=> "text",
-                    "text"=> "BTS 01",
+                    "text"=> $L900,
                     "align"=> "end",
                     "color"=> "#333333"
                   ]
@@ -184,7 +180,7 @@ $messages = [
               "action"=> [
                 "type"=> "uri",
                 "label"=> "View Site Around",
-                "uri"=> "https://google.co.th/"
+                "uri"=> "www.tsid2.daboostudio.com/sitebot/map_strada.php?data=".$code
               ]
             ]
           ]
