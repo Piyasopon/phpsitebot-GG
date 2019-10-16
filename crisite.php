@@ -36,7 +36,8 @@ $messages = [
               "text"=> "CMI0027",
               "size"=> "xl",
               "align"=> "start",
-              "weight"=> "bold"
+              "weight"=> "bold",
+              "color"=>"#eeeeee"
           ]
           ]
         ],
