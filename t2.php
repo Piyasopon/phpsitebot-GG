@@ -1,36 +1,21 @@
 <?php
-
-$access_token = 'pyy3ejY2dZqlv1IzEQWlaVYa8/avCiMSl18URYL/aUTbPElz68myv31ssA/xVbePpBRQ1Mg6zgbhRhJRfeiTrMQu00gKSjje90+BzC1R1XEG5MVGZZmn7r0TyGySNLywhb9oOW6tbpCMVMdwfiu58QdB04t89/1O/w1cDnyilFU=';
-
-// Validate parsed JSON data
-$_msg = $_POST['msg'];
-
-
-
-$text = 'ฮั้นแน่ !';
-$replyToken = $_POST['replyToken'];
-$messages = [
-        'type' => 'text',
-        'text' => $text,
-    ];
-    $url = 'https://api.line.me/v2/bot/message/reply';
-    $data = [
-        'replyToken' => $replyToken,
-        'messages' => [$messages]
-    ];
-
-    $post = json_encode($data);
-    $headers = array('Content-Type: application/json', 'Authorization: Bearer ' . $access_token);
-    $ch = curl_init($url);
-    curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "POST");
-    curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-    curl_setopt($ch, CURLOPT_POSTFIELDS, $post);
-    curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
-    curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 1);
-    $result = curl_exec($ch);
-    curl_close($ch);
-    echo $result . "";
-    
-
-echo "OK";
+        $_msg = $_POST['msg'];
+        $replyToken = $_POST['replyToken'];
+		ini_set('display_errors', 1);
+		ini_set('display_startup_errors', 1);
+		error_reporting(E_ALL);
+		date_default_timezone_set("Asia/Bangkok");
+		$sToken = "YyRWnhMpMqMn5eDB1stOTAsQzJwBPr13kSJzDXkBSMs";
+		$sMessage = "message=". $_POST['msg'].$_POST['replyToken'];
+		$chOne = curl_init(); 
+		curl_setopt( $chOne, CURLOPT_URL, "https://notify-api.line.me/api/notify"); 
+		curl_setopt( $chOne, CURLOPT_SSL_VERIFYHOST, 0); 
+		curl_setopt( $chOne, CURLOPT_SSL_VERIFYPEER, 0); 
+		curl_setopt( $chOne, CURLOPT_POST, 1); 
+		curl_setopt( $chOne, CURLOPT_POSTFIELDS, $sMessage); 
+		$headers = array( 'Content-type: application/x-www-form-urlencoded', 'Authorization: Bearer '.$sToken.'', );
+		curl_setopt($chOne, CURLOPT_HTTPHEADER, $headers); 
+		curl_setopt( $chOne, CURLOPT_RETURNTRANSFER, 1); 
+		$result = curl_exec( $chOne ); 
+		curl_close( $chOne ); 
 ?>
